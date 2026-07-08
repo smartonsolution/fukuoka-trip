@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>부산 → 후쿠오카 여행 일정 · 2026.7.16–7.19</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea-deep:#0c2233;
+    --sea-mid:#164a5b;
+    --sea-line:#2d6d7a;
+    --paper:#e9ece7;
+    --card:#f7f8f5;
+    --ink:#102230;
+    --ink-soft:#4a5b66;
+    --amber:#e0982f;
+    --amber-soft:#f4e2c2;
+    --rule:rgba(16,34,48,.12);
+    --rule-strong:rgba(16,34,48,.28);
+    --dawn:#d9b26a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans KR",sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  .mono{font-family:"Space Mono",monospace}
+
+  /* ---------- HERO / BOARDING PASS ---------- */
+  .hero{
+    background:
+      radial-gradient(120% 80% at 80% -10%, rgba(217,178,106,.22), transparent 60%),
+      linear-gradient(180deg,#0a1c2b 0%, var(--sea-deep) 55%, var(--sea-mid) 100%);
+    color:#eef2f0;
+    padding:52px 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+    background:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 8px,transparent 8px 16px);
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .eyebrow{
+    font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--dawn);
+  }
+  .route{
+    display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+    margin:14px 0 6px;font-family:"Gowun Batang",serif;font-weight:700;
+    font-size:clamp(34px,10vw,56px);line-height:1.02;letter-spacing:-.01em;
+  }
+  .route .arrow{color:var(--amber);font-family:"Space Mono",monospace;font-weight:400;font-size:.7em}
+  .route .to{color:#fff}
+  .hero-sub{color:#a9c0c7;font-size:15px;margin-bottom:26px}
+  .hero-sub b{color:#e7eef0;font-weight:600}
+
+  .stub{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:14px;
+    backdrop-filter:blur(4px);
+    display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    overflow:hidden;margin-bottom:-30px;
+    box-shadow:0 24px 50px -24px rgba(0,0,0,.6);
+  }
+  .stub .cell{padding:16px 18px;background:rgba(10,26,40,.35)}
+  .stub .cell .k{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--dawn);display:block;margin-bottom:5px}
+  .stub .cell .v{font-size:15px;color:#eef2f0;font-weight:500;line-height:1.4}
+  .stub .cell .v small{display:block;color:#93aab2;font-weight:400;font-size:12px;margin-top:2px}
+  .stub .full{grid-column:1/-1}
+
+  /* ---------- DEADLINE ALERT ---------- */
+  .alerts{padding:52px 0 8px}
+  .alerts h2, .section-h{
+    font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .section-h::before{content:"";width:22px;height:2px;background:var(--amber)}
+  .deadline-grid{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+  .deadline{
+    background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--amber);
+    border-radius:10px;padding:15px 16px;
+  }
+  .deadline .lbl{font-size:12px;color:var(--ink-soft);margin-bottom:4px}
+  .deadline .time{font-family:"Space Mono",monospace;font-weight:700;font-size:26px;color:var(--ink);line-height:1}
+  .deadline .desc{font-size:12.5px;color:var(--ink-soft);margin-top:7px;line-height:1.45}
+  .deadline .desc b{color:#b4761a}
+
+  /* ---------- WEATHER ---------- */
+  .weather{padding:34px 0 6px}
+  .wcard{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--sea-line);
+    border-radius:12px;padding:18px 18px 16px;overflow:hidden}
+  .wstats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+  .wstat{text-align:center;padding:8px 4px;background:var(--paper);border-radius:9px}
+  .wstat .wv{display:block;font-family:"Space Mono",monospace;font-weight:700;font-size:20px;color:var(--sea-mid);line-height:1.1}
+  .wstat .wk{display:block;font-size:11px;color:var(--ink-soft);margin-top:4px}
+  .wnote{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+  .wnote b{color:#b4761a;font-weight:600}
+  .wrain{margin-top:13px;padding:12px 14px;background:var(--amber-soft);border-radius:9px}
+  .wrain-lbl{display:block;font-weight:700;font-size:13px;color:#8a5a12;margin-bottom:4px}
+  .wrain-body{font-size:13px;color:#6b5220;line-height:1.55}
+  .wrain-body b{color:#8a5a12;font-weight:600}
+
+  /* ---------- DAYS ---------- */
+  .days{padding:40px 0 10px}
+  .leg{margin-bottom:38px}
+  .leg-head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px;flex-wrap:wrap}
+  .leg-num{font-family:"Space Mono",monospace;font-weight:700;font-size:13px;color:var(--amber);
+    letter-spacing:.1em;border:1px solid var(--amber);border-radius:6px;padding:2px 8px}
+  .leg-date{font-family:"Space Mono",monospace;font-size:13px;color:var(--ink-soft);letter-spacing:.06em}
+  .leg-title{font-family:"Gowun Batang",serif;font-weight:700;font-size:24px;color:var(--ink);
+    margin:6px 0 4px;line-height:1.2}
+  .leg-note{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px}
+
+  .timeline{position:relative;padding-left:74px}
+  .timeline::before{content:"";position:absolute;left:59px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,var(--sea-line),var(--rule))}
+  .stop{position:relative;padding-bottom:20px}
+  .stop:last-child{padding-bottom:0}
+  .stop .t{position:absolute;left:-74px;top:0;width:56px;text-align:right;
+    font-family:"Space Mono",monospace;font-weight:700;font-size:14px;color:var(--sea-mid)}
+  .stop::before{content:"";position:absolute;left:-19px;top:5px;width:11px;height:11px;border-radius:50%;
+    background:var(--paper);border:2.5px solid var(--sea-line)}
+  .stop.key::before{background:var(--amber);border-color:var(--amber)}
+  .stop.boat::before{background:var(--sea-deep);border-color:var(--sea-deep)}
+  .stop .name{font-weight:600;font-size:16px;color:var(--ink);line-height:1.35}
+  .stop .name .map{
+    font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--sea-mid);
+    text-decoration:none;border-bottom:1px solid var(--rule-strong);margin-left:8px;white-space:nowrap;
+    padding-bottom:1px;transition:color .15s,border-color .15s;
+  }
+  .stop .name .map:hover,.stop .name .map:focus{color:var(--amber);border-color:var(--amber)}
+  .stop .body{font-size:13.5px;color:var(--ink-soft);margin-top:4px;line-height:1.55}
+  .stop .body b{color:#b4761a;font-weight:600}
+
+  /* ---------- PACKING ---------- */
+  .packing{padding:34px 0 10px}
+  .must{display:grid;gap:12px;grid-template-columns:repeat(3,1fr);margin-bottom:24px}
+  .must .m{background:var(--sea-deep);color:#eef2f0;border-radius:12px;padding:16px 15px;position:relative;overflow:hidden}
+  .must .m::after{content:"";position:absolute;right:-14px;bottom:-14px;width:56px;height:56px;
+    border-radius:50%;background:rgba(224,152,47,.16)}
+  .must .m .n{font-family:"Space Mono",monospace;font-size:11px;color:var(--dawn);letter-spacing:.1em}
+  .must .m .h{font-family:"Gowun Batang",serif;font-weight:700;font-size:19px;margin:6px 0 5px}
+  .must .m .d{font-size:12px;color:#a9c0c7;line-height:1.5;position:relative;z-index:2}
+
+  .plist{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+  .pcard{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:16px 17px}
+  .pcard h4{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:11px;
+    display:flex;align-items:center;gap:8px}
+  .pcard h4 .ic{font-family:"Space Mono",monospace;color:var(--amber);font-size:13px}
+  .pcard ul{list-style:none;font-size:13px;color:var(--ink-soft);line-height:1.5}
+  .pcard li{position:relative;padding-left:20px;margin-bottom:7px}
+  .pcard li:last-child{margin-bottom:0}
+  .pcard li::before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;
+    border:1.5px solid var(--rule-strong);border-radius:3px}
+  .pcard li b{color:var(--ink);font-weight:600}
+
+  /* ---------- PRACTICAL ---------- */
+  .info{background:var(--sea-deep);color:#dfe8ea;margin-top:44px;padding:44px 0 40px}
+  .info .section-h{color:#8fa9b1}
+  .info .section-h::before{background:var(--dawn)}
+  .igrid{display:grid;gap:22px;grid-template-columns:1fr 1fr}
+  .ibox h5{font-family:"Gowun Batang",serif;font-weight:700;font-size:16px;color:#fff;margin-bottom:8px}
+  .ibox p{font-size:13px;color:#a9c0c7;line-height:1.6}
+  .ibox p b{color:#e7eef0;font-weight:600}
+  .ibox .mono{color:var(--dawn)}
+  .foot{margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.13);
+    font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;color:#6d8790;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:560px){
+    .deadline-grid,.must,.plist,.igrid,.stub{grid-template-columns:1fr}
+    .stub .cell{background:rgba(10,26,40,.35)}
+    .must .m .h{font-size:18px}
+    .timeline{padding-left:66px}
+    .timeline::before{left:51px}
+    .stop .t{left:-66px;width:48px;font-size:13px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Camellia Line · 뉴카멜리아 밤배</span>
+    <div class="route"><span>부산</span><span class="arrow">──▶</span><span class="to">후쿠오카</span></div>
+    <p class="hero-sub">2026. 7. 16 (목) ~ 7. 19 (일) · <b>선내 1박 + 현지 2박</b> · 현지 관광 약 2.5일</p>
+    <div class="stub">
+      <div class="cell"><span class="k">Depart · 출항</span><span class="v">7.16 (목) 22:30<small>부산항 국제여객터미널</small></span></div>
+      <div class="cell"><span class="k">Arrive · 도착</span><span class="v">7.17 (금) 07:30<small>후쿠오카 하카타항</small></span></div>
+      <div class="cell"><span class="k">Return · 귀국</span><span class="v">7.19 (일) 12:30<small>하카타 출항 → 18:30 부산</small></span></div>
+      <div class="cell"><span class="k">Stay · 숙소</span><span class="v">Hotel Monte Hermana<small>와타나베도리 · 텐진 인접</small></span></div>
+    </div>
+  </div>
+</header>
+
+<section class="alerts">
+  <div class="wrap">
+    <div class="section-h">놓치면 안 되는 시각</div>
+    <div class="deadline-grid">
+      <div class="deadline reveal">
+        <div class="lbl">부산항 3층 수속 마감</div>
+        <div class="time">18:00</div>
+        <div class="desc">발권 마감은 <b>18:40</b>. 배는 밤 10시 반 출항이지만, <b>6시까지 터미널 도착</b>이 진짜 기준.</div>
+      </div>
+      <div class="deadline reveal">
+        <div class="lbl">하카타항 탑승 수속 (귀국일)</div>
+        <div class="time">11:00</div>
+        <div class="desc">개별 발권 11:00~11:30. 19일 오전은 <b>체크아웃 후 곧장 항구</b>로. 관광 여유 거의 없음.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="weather">
+  <div class="wrap">
+    <div class="section-h">날씨 · 7월 중순 (장마 끝물)</div>
+    <div class="wcard reveal">
+      <div class="wstats">
+        <div class="wstat"><span class="wv">30–33°</span><span class="wk">낮 최고</span></div>
+        <div class="wstat"><span class="wv">24–25°</span><span class="wk">밤 최저</span></div>
+        <div class="wstat"><span class="wv">70–80%</span><span class="wk">습도</span></div>
+        <div class="wstat"><span class="wv">40–50%</span><span class="wk">강수확률</span></div>
+      </div>
+      <p class="wnote">평년 장마 종료가 <b>7월 19일 전후</b>라 이번 일정은 장마 끝물과 겹칩니다. 하루 종일 내리는 비보다 <b>갑작스런 소나기</b>가 잦고, 습해서 체감은 <b>35°C 이상</b>. 접이식 우산·얇은 우비는 필수, 실내 냉방 대비 얇은 긴팔도 하나. 정확한 예보는 <b>출발 3~4일 전</b> tenki.jp나 날씨 앱으로 확인하세요.</p>
+      <div class="wrain">
+        <span class="wrain-lbl">☔ 비 오는 날 플랜</span>
+        <span class="wrain-body">야외 위주인 <b>다자이후·오호리</b>는 맑은 날로 미루고, 그날은 <b>텐진 지하상가·캐널시티·라라포트</b> 같은 실내 코스로 교체. 셋 다 백화점·몰과 연결돼 비 안 맞고 다닐 수 있습니다. (건담은 야외라 폭우 땐 다음 날로)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="days">
+  <div class="wrap">
+
+    <!-- DAY 0 -->
+    <div class="leg reveal">
+      <div class="leg-head"><span class="leg-num">DAY 0</span><span class="leg-date">7.16 (목) · 부산 · 승선</span></div>
+      <h2 class="leg-title">부산 도착 → 국밥 → 밤배 탑승</h2>
+      <p class="leg-note">서울발 부산역 오후 도착, 와이프 대구 자차 합류. 국밥 한 그릇 하고 여유 있게 승선.</p>
+      <div class="timeline">
+        <div class="stop">
+          <span class="t">15:30</span>
+          <div class="name">부산역 도착 · 자차 합류</div>
+          <div class="body">서울발 KTX 도착 (오후 3~4시). 와이프 대구→부산 자차 약 1시간~1시간 20분. 만나서 함께 이동.</div>
+        </div>
+        <div class="stop">
+          <span class="t">16:00</span>
+          <div class="name">초량 돼지국밥 <a class="map" href="https://maps.google.com/?cid=12384458207293339578" target="_blank" rel="noopener">본전 MAP↗</a><a class="map" href="https://maps.google.com/?cid=4828372304605406215" target="_blank" rel="noopener">정짓간 MAP↗</a></div>
+          <div class="body">부산역 도보 5분. <b>본전돼지국밥</b>(정석, 순대 강추) 또는 <b>정짓간</b>(미쉐린·다국어 주문, 밤 10시까지). 국밥 골목에 몰려 있음.</div>
+        </div>
+        <div class="stop">
+          <span class="t">17:15</span>
+          <div class="name">선내 먹거리 구비</div>
+          <div class="body">부산역·골목 편의점에서 물·간식·컵라면. 22:30 출항이라 저녁 겸 야식용으로.</div>
+        </div>
+        <div class="stop key">
+          <span class="t">18:00</span>
+          <div class="name">국제여객터미널 3층 수속</div>
+          <div class="body"><b>여기가 진짜 데드라인.</b> 부산역→터미널 차 5분/도보 15분. 샌딩 담당자 미팅 또는 개별 발권. 발권 마감 18:40.</div>
+        </div>
+        <div class="stop">
+          <span class="t">19:00</span>
+          <div class="name">출국장 입장 → 면세점</div>
+          <div class="body">19:00~19:30 출국장 입장. 대기 중 면세 쇼핑 가능.</div>
+        </div>
+        <div class="stop boat">
+          <span class="t">19:40</span>
+          <div class="name">승선 → 22:30 출항</div>
+          <div class="body">선실에서 취침. <b>멀미약은 승선 30분~1시간 전</b> 복용. 다음 날 새벽 하카타 도착.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="leg reveal">
+      <div class="leg-head"><span class="leg-num">DAY 1</span><span class="leg-date">7.17 (금) · 후쿠오카 · 도착</span></div>
+      <h2 class="leg-title">하카타 구도심 + 나카스 야타이</h2>
+      <p class="leg-note">밤배로 피곤한 날. 짐 맡기고 한 박자 쉬었다가 오후부터 가볍게, 저녁은 포장마차로.</p>
+      <div class="timeline">
+        <div class="stop boat">
+          <span class="t">07:30</span>
+          <div class="name">하카타항 도착 · 입국</div>
+          <div class="body">Visit Japan Web QR로 입국·세관 통과. 항구→호텔은 텐진 방면 버스 20~30분 또는 택시 15분.</div>
+        </div>
+        <div class="stop key">
+          <span class="t">08:30</span>
+          <div class="name">호텔 짐 맡기기 <a class="map" href="https://maps.google.com/?cid=11289464294054926976" target="_blank" rel="noopener">MAP↗</a></div>
+          <div class="body"><b>체크인은 오후 3시.</b> 방은 아직 못 들어가니 프런트에 짐만 맡기고 근처에서 아침. 오후에 정식 체크인.</div>
+        </div>
+        <div class="stop">
+          <span class="t">13:00</span>
+          <div class="name">쿠시다 신사 <a class="map" href="https://maps.google.com/?cid=11639954002556587428" target="_blank" rel="noopener">MAP↗</a></div>
+          <div class="body">하카타 수호신 신사(무료). 근처 하카타 옛거리 산책. 오전 9시~오후 5시.</div>
+        </div>
+        <div class="stop">
+          <span class="t">14:15</span>
+          <div class="name">캐널시티 하카타 <a class="map" href="https://maps.google.com/?cid=16207815243977726417" target="_blank" rel="noopener">MAP↗</a></div>
+          <div class="body">운하를 낀 대형 몰. 30분마다 분수쇼, 지하 라멘 스타디움. 쿠시다에서 도보 5분.</div>
+        </div>
+        <div class="stop key">
+          <span class="t">18:30</span>
+          <div class="name">나카스 야타이 <a class="map" href="https://maps.google.com/?cid=8299763336248263788" target="_blank" rel="noopener">MAP↗</a></div>
+          <div class="body">강변 포장마차 거리. 오뎅·라멘·멘타이구이·닭꼬치. <b>분위기가 8할</b>, 가격은 관광지가라 한두 접시씩. 이후 호텔 정식 체크인·휴식.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="leg reveal">
+      <div class="leg-head"><span class="leg-num">DAY 2</span><span class="leg-date">7.18 (토) · 후쿠오카 · 종일</span></div>
+      <h2 class="leg-title">다자이후 + 오호리 + 텐진 → 건담 야경</h2>
+      <p class="leg-note">가장 알찬 하루. 오전 다자이후, 오후 오호리·텐진, 저녁은 라라포트에서 식사하고 <b>조명 켜진 실물 건담</b>으로 피날레.</p>
+      <div class="timeline">
+        <div class="stop">
+          <span class="t">09:30</span>
+          <div class="name">다자이후 텐만구 <a class="map" href="https://maps.google.com/?cid=13268960937318002327" target="_blank" rel="noopener">MAP↗</a></div>
+          <div class="body">니시테츠 텐진역에서 전철 약 40~50분(호텔이 텐진 근처라 편리). 학문의 신. 참배길 먹거리(우메가에모찌)·명물 스타벅스. <b>2026년 본전 보수 중</b>이나 임시 사전·경내는 정상.</div>
+        </div>
+        <div class="stop">
+          <span class="t">14:00</span>
+          <div class="name">오호리 공원 <a class="map" href="https://maps.google.com/?cid=14839213291318671256" target="_blank" rel="noopener">MAP↗</a></div>
+          <div class="body">큰 호수를 낀 힐링 공원. 오리배·호수뷰 카페. 바로 옆 마이즈루 공원(후쿠오카성터) 같이. 다자이후에서 돌아오는 길에 시내로.</div>
+        </div>
+        <div class="stop">
+          <span class="t">16:00</span>
+          <div class="name">텐진 지하상가 <a class="map" href="https://maps.google.com/?cid=12006416572707283355" target="_blank" rel="noopener">MAP↗</a></div>
+          <div class="body">호텔 도보 10분. 다이마루·미쓰코시·파르코. 지하 1.5km라 비 와도 쾌적. 산 짐은 호텔에 두고 가볍게 라라포트로 이동.</div>
+        </div>
+        <div class="stop">
+          <span class="t">18:30</span>
+          <div class="name">라라포트 후쿠오카 · 저녁 + 건담 베이스</div>
+          <div class="body">텐진에서 버스·전철 약 20~30분. 몰에서 저녁 식사, 건담 베이스 스토어(~21시)에서 건프라 쇼핑. 해가 질 때까지 시간 보내기 딱.</div>
+        </div>
+        <div class="stop key">
+          <span class="t">20:00</span>
+          <div class="name">실물 건담 야경 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=RX-93ff%20Gundam&amp;query_place_id=ChIJ4_0WFuiRQTURxlN32OlD-ck" target="_blank" rel="noopener">MAP↗</a></div>
+          <div class="body"><b>RX-93ff ν(뉴) 건담</b>. 여름 일몰이 7시 반경이라 <b>어두워진 뒤 조명이 제대로</b> 산다. <b>20:00 정각 퍼포먼스</b>에 맞춰 보면 조명+음악+움직임을 한 번에. 이후 호텔 복귀.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="leg reveal">
+      <div class="leg-head"><span class="leg-num">DAY 3</span><span class="leg-date">7.19 (일) · 귀국</span></div>
+      <h2 class="leg-title">오전 마무리 → 하카타항 출항</h2>
+      <p class="leg-note">관광보다 시간 관리가 핵심. 11시까지 항구 도착이 목표.</p>
+      <div class="timeline">
+        <div class="stop">
+          <span class="t">08:00</span>
+          <div class="name">텐진에서 아침 · 막판 쇼핑</div>
+          <div class="body">호텔 근처에서 커피·식사. 지하상가 10시 오픈. 편의점에서 배에서 먹을 간식 구비.</div>
+        </div>
+        <div class="stop key">
+          <span class="t">09:30</span>
+          <div class="name">호텔 체크아웃</div>
+          <div class="body">늦어도 10시엔 체크아웃. 짐 정리 후 항구로 출발.</div>
+        </div>
+        <div class="stop">
+          <span class="t">10:30</span>
+          <div class="name">하카타항 이동</div>
+          <div class="body">호텔에서 택시 15분 또는 텐진발 버스. 11시 전 도착 목표.</div>
+        </div>
+        <div class="stop key">
+          <span class="t">11:00</span>
+          <div class="name">탑승 수속 (1층)</div>
+          <div class="body">개별 발권 11:00~11:30 → 출국장 입장 11:30~12:00.</div>
+        </div>
+        <div class="stop boat">
+          <span class="t">12:30</span>
+          <div class="name">하카타 출항 → 18:30 부산</div>
+          <div class="body">부산 도착 저녁 6시 반. <b>대구 출발 전 부산에서 전기차 충전</b>하고 귀가.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="packing">
+  <div class="wrap">
+    <div class="section-h">준비물 · 이 셋은 꼭</div>
+    <div class="must">
+      <div class="m reveal"><div class="n">01</div><div class="h">멀미약</div><div class="d">밤배 현해탄 흔들림. 승선 30분~1시간 전 복용.</div></div>
+      <div class="m reveal"><div class="n">02</div><div class="h">돼지코</div><div class="d">일본 110V 납작핀. 폰·보조배터리 충전 필수.</div></div>
+      <div class="m reveal"><div class="n">03</div><div class="h">엔화 현금</div><div class="d">야타이·참배길 소규모 가게는 현금만 되는 곳 많음.</div></div>
+    </div>
+
+    <div class="plist">
+      <div class="pcard reveal">
+        <h4><span class="ic">◇</span>서류 · 결제</h4>
+        <ul>
+          <li><b>여권</b> (유효기간 6개월↑ 확인)</li>
+          <li>승선권·예약 바우처, 호텔 확인서</li>
+          <li><b>Visit Japan Web</b> QR 사전 등록</li>
+          <li>엔화 현금 + 해외결제 카드, 여행자보험</li>
+        </ul>
+      </div>
+      <div class="pcard reveal">
+        <h4><span class="ic">◇</span>밤배 · 선내 1박</h4>
+        <ul>
+          <li>멀미약, 목베개·안대·귀마개</li>
+          <li>세면도구·수건, 슬리퍼, 얇은 겉옷(냉방)</li>
+          <li>보조배터리, 선내용 간식·물</li>
+        </ul>
+      </div>
+      <div class="pcard reveal">
+        <h4><span class="ic">◇</span>여름 날씨 (7월)</h4>
+        <ul>
+          <li><b>우산·접이식 우비</b> (장마 끝물, 소나기)</li>
+          <li>선크림·모자·선글라스, 손풍기</li>
+          <li>여벌 티셔츠, 편한 운동화(많이 걸음)</li>
+        </ul>
+      </div>
+      <div class="pcard reveal">
+        <h4><span class="ic">◇</span>전자 · 상비약</h4>
+        <ul>
+          <li>콘센트 어댑터, eSIM·와이파이·로밍</li>
+          <li>구글맵·파파고 앱 설치</li>
+          <li>개인 처방약, 소화제·지사제·밴드</li>
+          <li>접이식 에코백(쇼핑용)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="info">
+  <div class="wrap">
+    <div class="section-h">실전 정보</div>
+    <div class="igrid">
+      <div class="ibox reveal">
+        <h5>부산 주차 (전기차)</h5>
+        <p>국제여객터미널 <b>야외주차장</b> 이용. 친환경차 <b>60% 감면</b>(실내 50%). 유공자·전기차 감면은 중복 불가, 더 높은 것 하나만 적용. 3박 대략 <b>1만 2천 원</b> 안팎. 유족 감면 여부는 미리 전화 확인.<br><span class="mono">문의 051-400-1250</span></p>
+      </div>
+      <div class="ibox reveal">
+        <h5>시내 교통</h5>
+        <p>호텔이 텐진 옆이라 <b>지하철 + 니시테츠 버스</b>로 충분. <b>IC카드(스이카·이코카)</b> 하나면 편리. 다자이후는 <b>니시테츠 텐진역 전철</b>이 가장 수월.</p>
+      </div>
+      <div class="ibox reveal">
+        <h5>배 시간 요약</h5>
+        <p>부산 출항 <span class="mono">22:30</span> → 하카타 <span class="mono">07:30</span><br>하카타 출항 <span class="mono">12:30</span> → 부산 <span class="mono">18:30</span><br>수속 마감: 부산 <span class="mono">18:40</span> / 하카타 <span class="mono">11:30</span></p>
+      </div>
+      <div class="ibox reveal">
+        <h5>숙소</h5>
+        <p><b>Hotel Monte Hermana Fukuoka</b><br>와타나베도리 3-4-24 (중앙구)<br>체크인 15:00 · 텐진 지하상가 도보 10분<br><span class="mono">+81 92-735-7111</span></p>
+      </div>
+    </div>
+    <div class="foot">
+      <span>BUSAN ─▶ FUKUOKA</span>
+      <span>2026.07.16 – 07.19</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
