@@ -177,6 +177,11 @@
   .scard.etc{border-left-color:#9aa7ad}
   .scard.etc .sc-time{color:var(--ink-soft)}
   .scard.etc .sc-cat{background:rgba(74,91,102,.1);color:var(--ink-soft)}
+  .scard.rain{border-left-color:#3a7ca5}
+  .scard.rain .sc-time{color:#2f6d92;font-size:17px}
+  .scard.rain .sc-cat{background:rgba(58,124,165,.14);color:#2f6d92}
+  .sc-links .web{color:#2f6d92;border-color:rgba(58,124,165,.4)}
+  .sc-links .web:hover,.sc-links .web:focus{color:#fff;background:#2f6d92;border-color:#2f6d92}
 
   /* ---------- PACKING ---------- */
   .packing{padding:34px 0 10px}
@@ -353,6 +358,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc"><b>여기가 진짜 데드라인.</b> 부산역→터미널 차 5분/도보 15분. 샌딩 담당자 미팅 또는 개별 발권. 발권 마감 18:40.</p>
+            <div class="sc-links"><a class="map web" href="https://www.koreaferry.kr/" target="_blank" rel="noopener">고려훼리(승선안내)↗</a></div>
           </div></div>
         </div>
         <div class="scard etc">
@@ -371,6 +377,16 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">선실에서 취침. <b>멀미약은 승선 30분~1시간 전</b> 복용. 다음 날 새벽 하카타 도착.</p>
+            <div class="sc-links"><a class="map web" href="https://www.koreaferry.kr/" target="_blank" rel="noopener">배편 시간표↗</a></div>
+          </div></div>
+        </div>
+        <div class="scard rain">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">☔</span><span class="sc-cat">비올 시</span>
+            <span class="sc-name">우천 플랜 · DAY 0</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">비 와도 <b>큰 지장 없는 날</b>. 국밥집·터미널·선내 모두 실내라 우산만 있으면 충분. <b>젖은 우산 넣을 비닐봉투</b> 하나 챙기고, 부산역~터미널 짧은 이동만 신경 쓰면 됩니다. 밤배 승선까지 실내 위주.</p>
           </div></div>
         </div>
       </div>
@@ -389,6 +405,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">Visit Japan Web QR로 입국·세관 통과. 항구→호텔은 텐진 방면 버스 20~30분 또는 택시 15분.</p>
+            <div class="sc-links"><a class="map web" href="https://www.koreaferry.kr/" target="_blank" rel="noopener">배편 정보↗</a></div>
           </div></div>
         </div>
         <div class="scard etc">
@@ -398,7 +415,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc"><b>체크인은 오후 3시.</b> 방은 아직 못 들어가니 프런트에 짐만 맡기고 근처에서 아침. 오후에 정식 체크인.</p>
-            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=11289464294054926976" target="_blank" rel="noopener">호텔 MAP↗</a></div>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=11289464294054926976" target="_blank" rel="noopener">호텔 MAP↗</a><a class="map web" href="https://www.monte-hermana.jp/en/fukuoka/" target="_blank" rel="noopener">호텔 공식↗</a></div>
           </div></div>
         </div>
         <div class="scard food">
@@ -408,7 +425,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">항구 인근 <b>하코자키</b>의 회전초밥집. <b>연중무휴</b>, 평일 점심 11:00~15:00. 지하철 하코자키선 <b>箱崎九大前역 도보 4분</b>. 짐 맡기고 시내로 들어오는 길에 점심으로 들르기 좋음. <span class="mono">092-641-5310</span></p>
-            <div class="sc-links"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%AC%E5%AF%BF%E5%8F%B8%20%E7%AE%B1%E5%B4%8E%E5%BA%97" target="_blank" rel="noopener">MAP↗</a></div>
+            <div class="sc-links"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%AC%E5%AF%BF%E5%8F%B8%20%E7%AE%B1%E5%B4%8E%E5%BA%97" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://fbrf900.gorp.jp/" target="_blank" rel="noopener">가게 정보↗</a></div>
           </div></div>
         </div>
         <div class="scard sight">
@@ -418,7 +435,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">하카타 수호신 신사(무료). 근처 하카타 옛거리 산책. 오전 9시~오후 5시.</p>
-            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=11639954002556587428" target="_blank" rel="noopener">MAP↗</a></div>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=11639954002556587428" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://yokanavi.com/spots/26906" target="_blank" rel="noopener">정보↗</a></div>
           </div></div>
         </div>
         <div class="scard sight">
@@ -428,7 +445,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">운하를 낀 대형 몰. 30분마다 분수쇼, 지하 라멘 스타디움. 쿠시다에서 도보 5분.</p>
-            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=16207815243977726417" target="_blank" rel="noopener">MAP↗</a></div>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=16207815243977726417" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://canalcity.co.jp/" target="_blank" rel="noopener">공식↗</a></div>
           </div></div>
         </div>
         <div class="scard food">
@@ -438,7 +455,16 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">강변 포장마차 거리. 오뎅·라멘·멘타이구이·닭꼬치. <b>분위기가 8할</b>, 가격은 관광지가라 한두 접시씩. 이후 호텔 정식 체크인·휴식.</p>
-            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=8299763336248263788" target="_blank" rel="noopener">MAP↗</a></div>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=8299763336248263788" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://yokanavi.com/yatai" target="_blank" rel="noopener">야타이 정보↗</a></div>
+          </div></div>
+        </div>
+        <div class="scard rain">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">☔</span><span class="sc-cat">비올 시</span>
+            <span class="sc-name">우천 플랜 · DAY 1</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">쿠시다 신사(야외) 외엔 대부분 실내/반실내라 무난. 신사 참배는 짧게. 비 심하면 <b>노천인 나카스 야타이 대신 → 캐널시티 라멘 스타디움</b>이나 <b>하카타역 데이토스</b> 실내 식사로 대체. 짐은 호텔·역 코인락커 활용.</p>
           </div></div>
         </div>
       </div>
@@ -457,6 +483,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">다자이후로 나서기 전 든든하게. <b>호텔 조식</b> 또는 텐진 근처 <b>카페·베이커리</b>로 가볍게. 아이들 챙겨 니시테츠 <b>텐진역</b>에서 전철 탑승.</p>
+            <div class="sc-links"><a class="map web" href="https://www.monte-hermana.jp/en/fukuoka/breakfast/" target="_blank" rel="noopener">호텔 조식 안내↗</a></div>
           </div></div>
         </div>
         <div class="scard sight">
@@ -466,7 +493,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">니시테츠 텐진역에서 전철 약 40~50분(호텔이 텐진 근처라 편리). 학문의 신. 참배길 먹거리(우메가에모찌)·명물 스타벅스. <b>2026년 본전 보수 중</b>이나 임시 사전·경내는 정상.</p>
-            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=13268960937318002327" target="_blank" rel="noopener">MAP↗</a></div>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=13268960937318002327" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://www.dazaifutenmangu.or.jp/" target="_blank" rel="noopener">공식↗</a></div>
           </div></div>
         </div>
         <div class="scard food">
@@ -486,7 +513,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">큰 호수를 낀 힐링 공원. 오리배·호수뷰 카페. 바로 옆 마이즈루 공원(후쿠오카성터) 같이. 다자이후에서 돌아오는 길에 시내로.</p>
-            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=14839213291318671256" target="_blank" rel="noopener">MAP↗</a></div>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=14839213291318671256" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://www.ohorikouen.jp/" target="_blank" rel="noopener">공식↗</a></div>
           </div></div>
         </div>
         <div class="scard sight">
@@ -496,7 +523,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">호텔 도보 10분. 다이마루·미쓰코시·파르코. 지하 1.5km라 비 와도 쾌적. 산 짐은 호텔에 두고 가볍게 라라포트로 이동.</p>
-            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=12006416572707283355" target="_blank" rel="noopener">MAP↗</a></div>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=12006416572707283355" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://www.tenchika.com/" target="_blank" rel="noopener">공식↗</a></div>
           </div></div>
         </div>
         <div class="scard food">
@@ -506,6 +533,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">텐진에서 버스·전철 약 20~30분. 몰에서 저녁 식사, 건담 베이스 스토어(~21시)에서 건프라 쇼핑. 해가 질 때까지 시간 보내기 딱.</p>
+            <div class="sc-links"><a class="map web" href="https://mitsui-shopping-park.com/lalaport/fukuoka/" target="_blank" rel="noopener">라라포트 공식↗</a></div>
           </div></div>
         </div>
         <div class="scard sight">
@@ -515,7 +543,16 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc"><b>RX-93ff ν(뉴) 건담</b>. 여름 일몰이 7시 반경이라 <b>어두워진 뒤 조명이 제대로</b> 산다. <b>20:00 정각 퍼포먼스</b>에 맞춰 보면 조명+음악+움직임을 한 번에. 이후 호텔 복귀.</p>
-            <div class="sc-links"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=RX-93ff%20Gundam&amp;query_place_id=ChIJ4_0WFuiRQTURxlN32OlD-ck" target="_blank" rel="noopener">MAP↗</a></div>
+            <div class="sc-links"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=RX-93ff%20Gundam&amp;query_place_id=ChIJ4_0WFuiRQTURxlN32OlD-ck" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://www.gundam-side-f.net/" target="_blank" rel="noopener">공식↗</a></div>
+          </div></div>
+        </div>
+        <div class="scard rain">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">☔</span><span class="sc-cat">비올 시</span>
+            <span class="sc-name">우천 플랜 · DAY 2 (가장 중요)</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc"><b>야외가 많아 재구성이 필요한 날.</b> 다자이후·오호리(야외)는 <b>맑은 날로 미루고</b> → <b>텐진 지하상가·캐널시티·라라포트</b> 실내 코스로 대체(모두 몰·백화점 연결). 건담(야외)은 폭우면 라라포트 실내에서 <b>GUNDAM SIDE-F·저녁</b>만 즐기고 야경은 다음 기회로. 소나기 정도면 우비 입고 강행 가능.</p>
           </div></div>
         </div>
       </div>
@@ -543,6 +580,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">늦어도 10시엔 체크아웃. 짐 정리 후 항구로 출발.</p>
+            <div class="sc-links"><a class="map web" href="https://www.monte-hermana.jp/en/fukuoka/" target="_blank" rel="noopener">호텔 공식↗</a></div>
           </div></div>
         </div>
         <div class="scard etc">
@@ -561,6 +599,7 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">개별 발권 11:00~11:30 → 출국장 입장 11:30~12:00.</p>
+            <div class="sc-links"><a class="map web" href="https://www.koreaferry.kr/" target="_blank" rel="noopener">고려훼리↗</a></div>
           </div></div>
         </div>
         <div class="scard boat">
@@ -570,6 +609,16 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">부산 도착 저녁 6시 반. <b>대구 출발 전 부산에서 전기차 충전</b>하고 귀가.</p>
+            <div class="sc-links"><a class="map web" href="https://www.koreaferry.kr/" target="_blank" rel="noopener">배편 시간표↗</a></div>
+          </div></div>
+        </div>
+        <div class="scard rain">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">☔</span><span class="sc-cat">비올 시</span>
+            <span class="sc-name">우천 플랜 · DAY 3</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">항구·터미널 실내 위주라 지장 적음. 체크아웃 후 이동만 우산으로 해결. 다만 <b>기상 악화 시 배편 지연·결항</b> 가능성 있으니 출발 전 <b>고려훼리 공지</b>를 꼭 확인하세요.</p>
           </div></div>
         </div>
       </div>
