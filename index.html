@@ -157,6 +157,28 @@
   .sc-name{font-weight:600;font-size:15px;color:var(--ink);flex:1;line-height:1.35}
   .sc-rec{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 8px;border-radius:20px;
     background:rgba(224,152,47,.16);color:#b4761a;margin-left:4px;white-space:nowrap;vertical-align:middle}
+
+  /* selectable meal options */
+  .opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;border:1px solid var(--rule);
+    border-radius:10px;background:var(--paper);cursor:pointer;transition:border-color .15s,background .15s}
+  .opt:hover{border-color:var(--sea-line)}
+  .opt.sel{border-color:#2e9e5b;background:rgba(46,158,91,.08);box-shadow:inset 0 0 0 1px #2e9e5b}
+  .opt-check{flex:none;width:18px;height:18px;border-radius:50%;border:2px solid var(--rule-strong);
+    margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent}
+  .opt.sel .opt-check{background:#2e9e5b;border-color:#2e9e5b;color:#fff}
+  .opt-body{flex:1;min-width:0}
+  .opt-title{font-weight:600;font-size:14px;color:var(--ink)}
+  .opt-tag{font-size:10px;font-weight:700;padding:1px 7px;border-radius:20px;margin-left:4px;
+    white-space:nowrap;vertical-align:middle;background:rgba(46,158,91,.15);color:#1f7a45}
+  .opt-tag.base{background:rgba(45,109,122,.14);color:var(--sea-mid)}
+  .opt-meta{font-size:12px;color:var(--ink-soft);line-height:1.5;margin-top:2px}
+  .opt-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .opt-links a{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.03em;color:var(--sea-mid);
+    text-decoration:none;border:1px solid var(--rule-strong);border-radius:6px;padding:3px 8px}
+  .opt-links a:hover,.opt-links a:focus{color:#fff;background:var(--sea-mid);border-color:var(--sea-mid)}
+  .opt-hint{font-size:11px;color:#2e9e5b;font-weight:600;margin-top:9px;display:none}
+  .opts.picked + .opt-hint,.opt-hint.show{display:block}
   .sc-chev{flex:none;color:var(--ink-soft);font-size:20px;line-height:1;
     transition:transform .25s;transform:rotate(90deg)}
   .scard.open .sc-chev{transform:rotate(-90deg)}
@@ -458,14 +480,56 @@
             <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=16207815243977726417" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://canalcity.co.jp/" target="_blank" rel="noopener">공식↗</a></div>
           </div></div>
         </div>
-        <div class="scard food">
+        <div class="scard food choice">
           <button class="sc-head" type="button" aria-expanded="false">
-            <span class="sc-time">18:30</span><span class="sc-cat">야타이</span>
-            <span class="sc-name">나카스 야타이</span><span class="sc-chev" aria-hidden="true">›</span>
+            <span class="sc-time">18:30</span><span class="sc-cat">저녁 · 택1</span>
+            <span class="sc-name">저녁 골라 먹기 (나카스·텐진 일대)</span><span class="sc-chev" aria-hidden="true">›</span>
           </button>
           <div class="sc-panel"><div class="sc-inner">
-            <p class="sc-desc">강변 포장마차 거리. 오뎅·라멘·멘타이구이·닭꼬치. <b>분위기가 8할</b>, 가격은 관광지가라 한두 접시씩. 이후 호텔 정식 체크인·휴식.</p>
-            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=8299763336248263788" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://yokanavi.com/yatai" target="_blank" rel="noopener">야타이 정보↗</a></div>
+            <p class="sc-desc">아래에서 <b>한 곳을 탭하면 선택 표시</b>가 남습니다(재접속해도 유지). 다 나카스·텐진 근처라 이동 부담이 적어요. 🧒는 시우 추천.</p>
+            <div class="opts" data-key="fk-dinner-day1">
+              <div class="opt" data-opt="yatai">
+                <span class="opt-check" aria-hidden="true">✓</span>
+                <div class="opt-body">
+                  <div class="opt-title">나카스 야타이 <span class="opt-tag base">기본</span></div>
+                  <div class="opt-meta">강변 포장마차 · 분위기 8할 · 오뎅/라멘/멘타이/닭꼬치</div>
+                  <div class="opt-links"><a href="https://maps.google.com/?cid=8299763336248263788" target="_blank" rel="noopener">MAP↗</a><a href="https://yokanavi.com/yatai" target="_blank" rel="noopener">정보↗</a></div>
+                </div>
+              </div>
+              <div class="opt" data-opt="wagyu">
+                <span class="opt-check" aria-hidden="true">✓</span>
+                <div class="opt-body">
+                  <div class="opt-title">원갈비 프리미엄 나카스 <span class="opt-tag">🧒 와규 무제한</span></div>
+                  <div class="opt-meta">와규·국산소 120분 무제한 뷔페 · 한국어 메뉴 · 17:00~23:00 · 나카스카와바타역 도보 2분</div>
+                  <div class="opt-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%AF%E3%83%B3%E3%82%AB%E3%83%AB%E3%83%93%20PREMIUM%20%E4%B8%AD%E6%B4%B2%20%E7%A6%8F%E5%B2%A1" target="_blank" rel="noopener">MAP↗</a></div>
+                </div>
+              </div>
+              <div class="opt" data-opt="sashisu">
+                <span class="opt-check" aria-hidden="true">✓</span>
+                <div class="opt-body">
+                  <div class="opt-title">스시사카바 사시스 <span class="opt-tag">🧒 스시</span></div>
+                  <div class="opt-meta">인기 스시 이자카야 · 텐진/이마이즈미 · 17:00~23:00(수요일 휴무) · 웨이팅 잦음</div>
+                  <div class="opt-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Sushi%20Sakaba%20Sashisu%20Tenjin%20Fukuoka" target="_blank" rel="noopener">MAP↗</a><a href="https://www.youtube.com/shorts/YO_XiCh8wNo" target="_blank" rel="noopener">유튜브▶</a></div>
+                </div>
+              </div>
+              <div class="opt" data-opt="koushi">
+                <span class="opt-check" aria-hidden="true">✓</span>
+                <div class="opt-body">
+                  <div class="opt-title">코우시캠프 <span class="opt-tag">🧒 야키니쿠</span></div>
+                  <div class="opt-meta">텐진 다이묘거리 빈티지 야키니쿠(소고기 구이) · 예약·웨이팅 확인 권장</div>
+                  <div class="opt-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%82%A6%E3%82%B7%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%20%E7%A6%8F%E5%B2%A1%20%E5%A4%A7%E5%90%8D" target="_blank" rel="noopener">MAP↗</a></div>
+                </div>
+              </div>
+              <div class="opt" data-opt="dosanko">
+                <span class="opt-check" aria-hidden="true">✓</span>
+                <div class="opt-body">
+                  <div class="opt-title">카와바타 도산코 <span class="opt-tag">🧒 미소라멘</span></div>
+                  <div class="opt-meta">50년 미소라멘 노포 · 하카타역 데이토스점 11:00~22:30(밤 늦게도 OK) · 본점은 저녁 일찍 닫음</div>
+                  <div class="opt-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E5%B7%9D%E7%AB%AF%E3%81%A9%E3%81%95%E3%82%93%E3%81%93%20%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">MAP↗</a></div>
+                </div>
+              </div>
+            </div>
+            <p class="opt-hint">✅ 선택됨 — 이 저녁으로 계획할게요. 다른 걸 탭하면 바뀝니다.</p>
           </div></div>
         </div>
         <div class="scard rain">
@@ -866,6 +930,29 @@
       btn.setAttribute('aria-expanded',open?'true':'false');
     });
   });
+
+  // 선택형 식사 옵션 (localStorage로 선택 유지)
+  document.querySelectorAll('.opts').forEach(group=>{
+    const key=group.dataset.key;
+    const hint=group.parentElement.querySelector('.opt-hint');
+    const mark=(el)=>{
+      group.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+      el.classList.add('sel');
+      if(hint) hint.classList.add('show');
+    };
+    group.querySelectorAll('.opt').forEach(opt=>{
+      opt.addEventListener('click',()=>{
+        mark(opt);
+        try{ localStorage.setItem(key, opt.dataset.opt); }catch(e){}
+      });
+    });
+    try{
+      const saved=localStorage.getItem(key);
+      if(saved){ const o=group.querySelector('.opt[data-opt="'+saved+'"]'); if(o) mark(o); }
+    }catch(e){}
+  });
+  // 옵션 안의 링크(지도/유튜브) 클릭은 선택 토글로 이어지지 않게
+  document.querySelectorAll('.opt a').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()));
 </script>
 </body>
 </html>
