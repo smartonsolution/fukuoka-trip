@@ -239,6 +239,10 @@
   .pcard li.done b{color:var(--rule-strong)}
   .pcard li.done::before{background:#2e9e5b;border-color:#2e9e5b}
   .pcard li.done::after{opacity:1}
+  .pcard li.skip{color:#9aa7ad;text-decoration:line-through;text-decoration-color:#9aa7ad}
+  .pcard li.skip b{color:#9aa7ad}
+  .pcard li.skip::before{background:#9aa7ad;border-color:#9aa7ad}
+  .pcard li.skip::after{content:"\2715";opacity:1}
   .pcard li b{color:var(--ink);font-weight:600}
   .must .m{cursor:pointer;-webkit-user-select:none;user-select:none}
   .must .m.done{opacity:.5}
@@ -468,14 +472,32 @@
             <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=11289464294054926976" target="_blank" rel="noopener">호텔 MAP↗</a><a class="map web" href="https://www.monte-hermana.jp/en/fukuoka/" target="_blank" rel="noopener">호텔 공식↗</a></div>
           </div></div>
         </div>
-        <div class="scard food">
+        <div class="scard food choice">
           <button class="sc-head" type="button" aria-expanded="false">
-            <span class="sc-time">11:30</span><span class="sc-cat">회전초밥</span>
-            <span class="sc-name">쿄우스시 하코자키점 · 회전초밥 <span class="sc-rec">🧒 시화 추천</span></span><span class="sc-chev" aria-hidden="true">›</span>
+            <span class="sc-time">11:30</span><span class="sc-cat">점심 · 택1</span>
+            <span class="sc-name">점심 초밥 골라 먹기</span><span class="sc-chev" aria-hidden="true">›</span>
           </button>
           <div class="sc-panel"><div class="sc-inner">
-            <p class="sc-desc">항구 인근 <b>하코자키</b>의 회전초밥집. <b>연중무휴</b>, 평일 점심 11:00~15:00. 지하철 하코자키선 <b>箱崎九大前역 도보 4분</b>. 짐 맡기고 시내로 들어오는 길에 점심으로 들르기 좋음. <span class="mono">092-641-5310</span></p>
-            <div class="sc-links"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%AC%E5%AF%BF%E5%8F%B8%20%E7%AE%B1%E5%B4%8E%E5%BA%97" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://fbrf900.gorp.jp/" target="_blank" rel="noopener">가게 정보↗</a></div>
+            <p class="sc-desc">초밥 <b>2곳 중 택1</b> — 탭하면 선택 표시가 남습니다(재접속해도 유지). 🧒는 아이 추천.</p>
+            <div class="opts" data-key="fk-lunch-day1">
+              <div class="opt" data-opt="kyousushi">
+                <span class="opt-check" aria-hidden="true">✓</span>
+                <div class="opt-body">
+                  <div class="opt-title">쿄우스시 하코자키점 <span class="opt-tag">🧒 시화 · 회전초밥</span></div>
+                  <div class="opt-meta">하코자키 회전초밥 · 연중무휴 · 평일 11:00~15:00 · 箱崎九大前역 도보 4분 · 항구서 시내 오는 길</div>
+                  <div class="opt-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%AC%E5%AF%BF%E5%8F%B8%20%E7%AE%B1%E5%B4%8E%E5%BA%97" target="_blank" rel="noopener">MAP↗</a><a href="https://fbrf900.gorp.jp/" target="_blank" rel="noopener">정보↗</a></div>
+                </div>
+              </div>
+              <div class="opt" data-opt="shogun">
+                <span class="opt-check" aria-hidden="true">✓</span>
+                <div class="opt-body">
+                  <div class="opt-title">스시 쇼군 (신텐초) <span class="opt-tag">🧒 시우 · 서서초밥</span></div>
+                  <div class="opt-meta">텐진 신텐초 서서먹는 초밥 · 1접시 80~90엔~, 60종+ · 11:00~20:00 · 텐진역 도보 3분(호텔 근처)</div>
+                  <div class="opt-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%99%E3%81%97%E5%B0%86%E8%BB%8D%20%E5%A4%A9%E7%A5%9E%E6%96%B0%E5%A4%A9%E7%94%BA%E5%BA%97" target="_blank" rel="noopener">MAP↗</a><a href="https://www.youtube.com/shorts/--ObF-4oOE4" target="_blank" rel="noopener">유튜브▶</a></div>
+                </div>
+              </div>
+            </div>
+            <p class="opt-hint">✅ 선택됨 — 이 점심으로 계획할게요. 다른 걸 탭하면 바뀝니다.</p>
           </div></div>
         </div>
         <div class="scard sight">
@@ -501,10 +523,10 @@
         <div class="scard food choice">
           <button class="sc-head" type="button" aria-expanded="false">
             <span class="sc-time">18:30</span><span class="sc-cat">저녁 · 택1</span>
-            <span class="sc-name">저녁 골라 먹기 (나카스·텐진 일대)</span><span class="sc-chev" aria-hidden="true">›</span>
+            <span class="sc-name">저녁 골라 먹기 (나카스 · 택1)</span><span class="sc-chev" aria-hidden="true">›</span>
           </button>
           <div class="sc-panel"><div class="sc-inner">
-            <p class="sc-desc">아래에서 <b>한 곳을 탭하면 선택 표시</b>가 남습니다(재접속해도 유지). 다 나카스·텐진 근처라 이동 부담이 적어요. 🧒는 시우 추천.</p>
+            <p class="sc-desc"><b>2곳 중 택1</b> — 탭하면 선택 표시가 남습니다(재접속해도 유지). 둘 다 나카스라 <b>야타이 분위기</b>냐 <b>와규 무제한</b>이냐만 고르면 됩니다. 🧒는 시우 추천.</p>
             <div class="opts" data-key="fk-dinner-day1">
               <div class="opt" data-opt="yatai">
                 <span class="opt-check" aria-hidden="true">✓</span>
@@ -520,30 +542,6 @@
                   <div class="opt-title">원갈비 프리미엄 나카스 <span class="opt-tag">🧒 와규 무제한</span></div>
                   <div class="opt-meta">와규·국산소 120분 무제한 뷔페 · 한국어 메뉴 · 17:00~23:00 · 나카스카와바타역 도보 2분</div>
                   <div class="opt-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%AF%E3%83%B3%E3%82%AB%E3%83%AB%E3%83%93%20PREMIUM%20%E4%B8%AD%E6%B4%B2%20%E7%A6%8F%E5%B2%A1" target="_blank" rel="noopener">MAP↗</a></div>
-                </div>
-              </div>
-              <div class="opt" data-opt="sashisu">
-                <span class="opt-check" aria-hidden="true">✓</span>
-                <div class="opt-body">
-                  <div class="opt-title">스시사카바 사시스 <span class="opt-tag">🧒 스시</span></div>
-                  <div class="opt-meta">인기 스시 이자카야 · 텐진/이마이즈미 · 17:00~23:00(수요일 휴무) · 웨이팅 잦음</div>
-                  <div class="opt-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Sushi%20Sakaba%20Sashisu%20Tenjin%20Fukuoka" target="_blank" rel="noopener">MAP↗</a><a href="https://www.youtube.com/shorts/YO_XiCh8wNo" target="_blank" rel="noopener">유튜브▶</a></div>
-                </div>
-              </div>
-              <div class="opt" data-opt="koushi">
-                <span class="opt-check" aria-hidden="true">✓</span>
-                <div class="opt-body">
-                  <div class="opt-title">코우시캠프 <span class="opt-tag">🧒 야키니쿠</span></div>
-                  <div class="opt-meta">텐진 다이묘거리 빈티지 야키니쿠(소고기 구이) · 예약·웨이팅 확인 권장</div>
-                  <div class="opt-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%82%A6%E3%82%B7%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%97%20%E7%A6%8F%E5%B2%A1%20%E5%A4%A7%E5%90%8D" target="_blank" rel="noopener">MAP↗</a></div>
-                </div>
-              </div>
-              <div class="opt" data-opt="dosanko">
-                <span class="opt-check" aria-hidden="true">✓</span>
-                <div class="opt-body">
-                  <div class="opt-title">카와바타 도산코 <span class="opt-tag">🧒 미소라멘</span></div>
-                  <div class="opt-meta">50년 미소라멘 노포 · 하카타역 데이토스점 11:00~22:30(밤 늦게도 OK) · 본점은 저녁 일찍 닫음</div>
-                  <div class="opt-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%9A%E5%A4%9A%E5%B7%9D%E7%AB%AF%E3%81%A9%E3%81%95%E3%82%93%E3%81%93%20%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">MAP↗</a></div>
                 </div>
               </div>
             </div>
@@ -977,11 +975,15 @@
     document.querySelectorAll('.pcard li').forEach(li=>{
       const card=li.closest('.pcard'); const head=card?card.querySelector('h4'):null;
       const key='pack:'+((head?head.textContent.trim():'')+'::'+li.textContent.trim());
-      try{ if(localStorage.getItem(key)==='1') li.classList.add('done'); }catch(e){}
+      try{ const v=localStorage.getItem(key); if(v==='1') li.classList.add('done'); else if(v==='x') li.classList.add('skip'); }catch(e){}
       li.addEventListener('click',(e)=>{
         if(e.target.tagName==='A') return;
-        const done=li.classList.toggle('done');
-        try{ localStorage.setItem(key, done?'1':'0'); }catch(e){}
+        const state=li.classList.contains('done')?'done':(li.classList.contains('skip')?'skip':'none');
+        li.classList.remove('done','skip');
+        let v=null;
+        if(state==='none'){ li.classList.add('done'); v='1'; }
+        else if(state==='done'){ li.classList.add('skip'); v='x'; }
+        try{ if(v) localStorage.setItem(key,v); else localStorage.removeItem(key); }catch(e){}
       });
     });
     document.querySelectorAll('.must .m').forEach(m=>{
@@ -998,10 +1000,10 @@
     const firstH=wrap?wrap.querySelector('.section-h'):null;
     if(firstH){
       const bar=document.createElement('div'); bar.className='pack-bar';
-      bar.innerHTML='<span class="hint">🧳 항목을 탭하면 체크·자동 저장됩니다.</span><button class="pack-reset" type="button">↺ 체크 초기화</button>';
+      bar.innerHTML='<span class="hint">🧳 탭: ✓챙김 → ✕필요없음 → 해제 · 자동 저장</span><button class="pack-reset" type="button">↺ 체크 초기화</button>';
       firstH.insertAdjacentElement('afterend', bar);
       bar.querySelector('.pack-reset').addEventListener('click',()=>{
-        document.querySelectorAll('.pcard li.done,.must .m.done').forEach(el=>el.classList.remove('done'));
+        document.querySelectorAll('.pcard li.done,.pcard li.skip,.must .m.done').forEach(el=>el.classList.remove('done','skip'));
         Object.keys(localStorage).filter(k=>k.indexOf('pack:')===0).forEach(k=>{try{localStorage.removeItem(k);}catch(e){}});
       });
     }
