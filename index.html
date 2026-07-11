@@ -181,12 +181,29 @@
     font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;color:#6d8790;
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
+  /* ---------- VISIT JAPAN WEB ---------- */
+  .vjw{padding:34px 0 10px}
+  .vjw-intro{font-size:13.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:18px}
+  .vjw-intro b{color:#b4761a;font-weight:600}
+  .vjw-intro a{color:#b4761a;text-decoration:none;border-bottom:1px solid var(--rule-strong)}
+  .vjw-grid{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+  .vcard{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:16px 17px}
+  .vcard h4{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px;
+    display:flex;align-items:center;gap:8px}
+  .vcard h4 .ic{font-family:"Space Mono",monospace;color:var(--amber);font-size:13px}
+  .vrow{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:8px 0;
+    border-top:1px solid var(--rule);font-size:12.5px;line-height:1.45}
+  .vrow .vk{color:var(--ink-soft)}
+  .vrow .vv{color:var(--ink);font-weight:600}
+  .vrow .vv .ph{color:var(--ink-soft);font-weight:400;font-style:italic}
+  .vrow .vv .mono{font-weight:400}
+
   /* reveal */
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
 
   @media (max-width:560px){
-    .deadline-grid,.must,.plist,.igrid,.stub{grid-template-columns:1fr}
+    .deadline-grid,.must,.plist,.igrid,.stub,.vjw-grid{grid-template-columns:1fr}
     .stub .cell{background:rgba(10,26,40,.35)}
     .must .m .h{font-size:18px}
     .timeline{padding-left:66px}
@@ -448,6 +465,43 @@
           <li>접이식 에코백(쇼핑용)</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="vjw">
+  <div class="wrap">
+    <div class="section-h">입국 서류 · Visit Japan Web 샘플</div>
+    <p class="vjw-intro">한국에서 <b>와이파이 될 때</b> <a href="https://vjw-lp.digital.go.jp/" target="_blank" rel="noopener">Visit Japan Web</a>에 미리 등록하고 <b>QR을 캡처(스크린샷)</b>해 두세요. 아래는 이번 일정 기준 샘플 — <b>[ ]</b> 칸만 본인 정보로 채우면 됩니다.</p>
+    <div class="vjw-grid">
+      <div class="vcard reveal">
+        <h4><span class="ic">◇</span>입국심사 · 입국기록</h4>
+        <div class="vrow"><span class="vk">성 / 이름</span><span class="vv"><span class="ph">[ 여권 영문 성·이름 ]</span></span></div>
+        <div class="vrow"><span class="vk">국적</span><span class="vv">REPUBLIC OF KOREA</span></div>
+        <div class="vrow"><span class="vk">생년월일</span><span class="vv"><span class="ph">[ YYYY.MM.DD ]</span></span></div>
+        <div class="vrow"><span class="vk">입국 목적</span><span class="vv">관광 (Tourism)</span></div>
+        <div class="vrow"><span class="vk">선박명</span><span class="vv">NEW CAMELLIA</span></div>
+        <div class="vrow"><span class="vk">출발지</span><span class="vv">BUSAN, KOREA</span></div>
+        <div class="vrow"><span class="vk">체류기간</span><span class="vv">3일 (7.17→7.19)</span></div>
+        <div class="vrow"><span class="vk">일본 숙소</span><span class="vv">Hotel Monte Hermana Fukuoka<br><span class="mono">3-4-24 Watanabe-dori, Chuo-ku</span></span></div>
+        <div class="vrow"><span class="vk">숙소 연락처</span><span class="vv"><span class="mono">+81 92-735-7111</span></span></div>
+        <div class="vrow"><span class="vk">뒷면 3문항</span><span class="vv">모두 아니오 (No)</span></div>
+      </div>
+      <div class="vcard reveal">
+        <h4><span class="ic">◇</span>세관신고 · 휴대품 신고서</h4>
+        <div class="vrow"><span class="vk">선박 / 출발지</span><span class="vv">NEW CAMELLIA / BUSAN</span></div>
+        <div class="vrow"><span class="vk">도착일</span><span class="vv">2026.07.17</span></div>
+        <div class="vrow"><span class="vk">이름·여권번호</span><span class="vv"><span class="ph">[ 본인 정보 ]</span></span></div>
+        <div class="vrow"><span class="vk">일본 주소</span><span class="vv">Hotel Monte Hermana<br><span class="mono">092-735-7111</span></span></div>
+        <div class="vrow"><span class="vk">동반 가족</span><span class="vv">1명 (배우자)</span></div>
+        <div class="vrow"><span class="vk">금지·제한물품</span><span class="vv">없음 (No)</span></div>
+        <div class="vrow"><span class="vk">100만엔 초과 현금</span><span class="vv">없음 (No)</span></div>
+        <div class="vrow"><span class="vk">상업용 물품</span><span class="vv">없음 (No)</span></div>
+      </div>
+    </div>
+    <div class="wrain" style="margin-top:16px">
+      <span class="wrain-lbl">⚓ 밤배(선박) 주의</span>
+      <span class="wrain-body">Visit Japan Web은 <b>항공편 기준</b>이라 선박 도착 시 '항공편명' 칸 형식이 안 맞아 막힐 수 있습니다. <b>QR 등록 + 배에서 주는 종이 서류(수기)</b>를 함께 준비하세요. QR은 미리 만들어 <b>캡처</b>해 두면 배 안에 인터넷이 없어도 화면만 보여주면 됩니다. 검은 볼펜도 한 자루.</span>
     </div>
   </div>
 </section>
