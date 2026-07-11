@@ -125,40 +125,58 @@
     margin:6px 0 4px;line-height:1.2}
   .leg-note{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px}
 
-  .timeline{position:relative;padding-left:74px}
-  .timeline::before{content:"";position:absolute;left:59px;top:6px;bottom:6px;width:2px;
-    background:linear-gradient(180deg,var(--sea-line),var(--rule))}
-  .stop{position:relative;padding-bottom:20px}
-  .stop:last-child{padding-bottom:0}
-  .stop .t{position:absolute;left:-74px;top:0;width:56px;text-align:right;
-    font-family:"Space Mono",monospace;font-weight:700;font-size:14px;color:var(--sea-mid)}
-  .stop::before{content:"";position:absolute;left:-19px;top:5px;width:11px;height:11px;border-radius:50%;
-    background:var(--paper);border:2.5px solid var(--sea-line)}
-  .stop.key::before{background:var(--amber);border-color:var(--amber)}
-  .stop.boat::before{background:var(--sea-deep);border-color:var(--sea-deep)}
-  .stop.food::before{background:var(--amber);border-color:var(--amber)}
-  .stop.sight::before{background:var(--sea-line);border-color:var(--sea-line)}
-  .stop.crit::before{background:#c0392b;border-color:#c0392b}
-
-  /* timeline legend */
-  .legend{display:flex;flex-wrap:wrap;gap:12px 16px;margin-bottom:30px;padding:12px 15px;
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:12px 16px;margin-bottom:26px;padding:12px 15px;
     background:var(--card);border:1px solid var(--rule);border-radius:10px}
   .legend .li{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-soft)}
-  .legend .ld{width:11px;height:11px;border-radius:50%;flex:none}
-  .legend .ld.food{background:var(--amber)}
+  .legend .ld{width:12px;height:12px;border-radius:4px;flex:none}
+  .legend .ld.food{background:#2e9e5b}
   .legend .ld.sight{background:var(--sea-line)}
   .legend .ld.boat{background:var(--sea-deep)}
   .legend .ld.crit{background:#c0392b}
-  .legend .ld.etc{background:var(--paper);border:2px solid var(--sea-line)}
-  .stop .name{font-weight:600;font-size:16px;color:var(--ink);line-height:1.35}
-  .stop .name .map{
-    font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--sea-mid);
-    text-decoration:none;border-bottom:1px solid var(--rule-strong);margin-left:8px;white-space:nowrap;
-    padding-bottom:1px;transition:color .15s,border-color .15s;
-  }
-  .stop .name .map:hover,.stop .name .map:focus{color:var(--amber);border-color:var(--amber)}
-  .stop .body{font-size:13.5px;color:var(--ink-soft);margin-top:4px;line-height:1.55}
-  .stop .body b{color:#b4761a;font-weight:600}
+  .legend .ld.etc{background:var(--paper);border:2px solid #9aa7ad}
+
+  /* ---------- STOP CARDS (accordion) ---------- */
+  .stops{display:flex;flex-direction:column;gap:10px}
+  .scard{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--sea-line);
+    border-radius:12px;overflow:hidden;transition:box-shadow .2s,transform .2s}
+  .scard:hover{box-shadow:0 10px 26px -16px rgba(16,34,48,.45)}
+  .scard.open{box-shadow:0 14px 32px -18px rgba(16,34,48,.5)}
+  .sc-head{width:100%;display:flex;align-items:center;gap:11px;padding:14px 15px;
+    background:none;border:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
+  .sc-time{font-family:"Space Mono",monospace;font-weight:700;font-size:13.5px;color:var(--sea-mid);
+    min-width:44px;flex:none}
+  .sc-cat{font-size:10.5px;font-weight:600;letter-spacing:.02em;padding:2px 9px;border-radius:20px;
+    flex:none;background:rgba(45,109,122,.12);color:var(--sea-mid);white-space:nowrap}
+  .sc-name{font-weight:600;font-size:15px;color:var(--ink);flex:1;line-height:1.35}
+  .sc-chev{flex:none;color:var(--ink-soft);font-size:20px;line-height:1;
+    transition:transform .25s;transform:rotate(90deg)}
+  .scard.open .sc-chev{transform:rotate(-90deg)}
+  .sc-panel{max-height:0;overflow:hidden;transition:max-height .32s ease}
+  .scard.open .sc-panel{max-height:660px}
+  .sc-inner{padding:2px 15px 15px 15px}
+  .sc-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+  .sc-desc b{color:#b4761a;font-weight:600}
+  .sc-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .sc-links .map{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.04em;
+    color:var(--sea-mid);text-decoration:none;border:1px solid var(--rule-strong);border-radius:7px;
+    padding:5px 9px;transition:color .15s,border-color .15s,background .15s}
+  .sc-links .map:hover,.sc-links .map:focus{color:#fff;background:var(--sea-mid);border-color:var(--sea-mid)}
+
+  /* category accents */
+  .scard.food{border-left-color:#2e9e5b}
+  .scard.food .sc-time{color:#238a4e}
+  .scard.food .sc-cat{background:rgba(46,158,91,.15);color:#1f7a45}
+  .scard.sight{border-left-color:var(--sea-line)}
+  .scard.boat{border-left-color:var(--sea-deep)}
+  .scard.boat .sc-time{color:var(--sea-deep)}
+  .scard.boat .sc-cat{background:rgba(12,34,51,.1);color:var(--sea-deep)}
+  .scard.crit{border-left-color:#c0392b}
+  .scard.crit .sc-time{color:#c0392b}
+  .scard.crit .sc-cat{background:rgba(192,57,43,.12);color:#c0392b}
+  .scard.etc{border-left-color:#9aa7ad}
+  .scard.etc .sc-time{color:var(--ink-soft)}
+  .scard.etc .sc-cat{background:rgba(74,91,102,.1);color:var(--ink-soft)}
 
   /* ---------- PACKING ---------- */
   .packing{padding:34px 0 10px}
@@ -220,9 +238,9 @@
     .deadline-grid,.must,.plist,.igrid,.stub,.vjw-grid{grid-template-columns:1fr}
     .stub .cell{background:rgba(10,26,40,.35)}
     .must .m .h{font-size:18px}
-    .timeline{padding-left:66px}
-    .timeline::before{left:51px}
-    .stop .t{left:-66px;width:48px;font-size:13px}
+    .sc-head{gap:9px;padding:13px 13px}
+    .sc-time{min-width:42px;font-size:13px}
+    .sc-name{font-size:14.5px}
   }
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
@@ -299,36 +317,61 @@
       <div class="leg-head"><span class="leg-num">DAY 0</span><span class="leg-date">7.16 (목) · 부산 · 승선</span></div>
       <h2 class="leg-title">부산 도착 → 국밥 → 밤배 탑승</h2>
       <p class="leg-note">서울발 부산역 오후 도착, 와이프 대구 자차 합류. 국밥 한 그릇 하고 여유 있게 승선.</p>
-      <div class="timeline">
-        <div class="stop">
-          <span class="t">15:30</span>
-          <div class="name">부산역 도착 · 자차 합류</div>
-          <div class="body">서울발 KTX 도착 (오후 3~4시). 와이프 대구→부산 자차 약 1시간~1시간 20분. 만나서 함께 이동.</div>
+      <div class="stops">
+        <div class="scard etc">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">15:30</span><span class="sc-cat">이동</span>
+            <span class="sc-name">부산역 도착 · 자차 합류</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">서울발 KTX 도착 (오후 3~4시). 와이프 대구→부산 자차 약 1시간~1시간 20분. 만나서 함께 이동.</p>
+          </div></div>
         </div>
-        <div class="stop food">
-          <span class="t">16:00</span>
-          <div class="name">초량 돼지국밥 <a class="map" href="https://maps.google.com/?cid=12384458207293339578" target="_blank" rel="noopener">본전 MAP↗</a><a class="map" href="https://maps.google.com/?cid=4828372304605406215" target="_blank" rel="noopener">정짓간 MAP↗</a></div>
-          <div class="body">부산역 도보 5분. <b>본전돼지국밥</b>(정석, 순대 강추) 또는 <b>정짓간</b>(미쉐린·다국어 주문, 밤 10시까지). 국밥 골목에 몰려 있음.</div>
+        <div class="scard food">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">16:00</span><span class="sc-cat">식사</span>
+            <span class="sc-name">초량 돼지국밥</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">부산역 도보 5분. <b>본전돼지국밥</b>(정석, 순대 강추) 또는 <b>정짓간</b>(미쉐린·다국어 주문, 밤 10시까지). 국밥 골목에 몰려 있음.</p>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=12384458207293339578" target="_blank" rel="noopener">본전 MAP↗</a><a class="map" href="https://maps.google.com/?cid=4828372304605406215" target="_blank" rel="noopener">정짓간 MAP↗</a></div>
+          </div></div>
         </div>
-        <div class="stop">
-          <span class="t">17:15</span>
-          <div class="name">선내 먹거리 구비</div>
-          <div class="body">부산역·골목 편의점에서 물·간식·컵라면. 22:30 출항이라 저녁 겸 야식용으로.</div>
+        <div class="scard etc">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">17:15</span><span class="sc-cat">이동</span>
+            <span class="sc-name">선내 먹거리 구비</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">부산역·골목 편의점에서 물·간식·컵라면. 22:30 출항이라 저녁 겸 야식용으로.</p>
+          </div></div>
         </div>
-        <div class="stop crit">
-          <span class="t">18:00</span>
-          <div class="name">국제여객터미널 3층 수속</div>
-          <div class="body"><b>여기가 진짜 데드라인.</b> 부산역→터미널 차 5분/도보 15분. 샌딩 담당자 미팅 또는 개별 발권. 발권 마감 18:40.</div>
+        <div class="scard crit">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">18:00</span><span class="sc-cat">수속</span>
+            <span class="sc-name">국제여객터미널 3층 수속</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc"><b>여기가 진짜 데드라인.</b> 부산역→터미널 차 5분/도보 15분. 샌딩 담당자 미팅 또는 개별 발권. 발권 마감 18:40.</p>
+          </div></div>
         </div>
-        <div class="stop">
-          <span class="t">19:00</span>
-          <div class="name">출국장 입장 → 면세점</div>
-          <div class="body">19:00~19:30 출국장 입장. 대기 중 면세 쇼핑 가능.</div>
+        <div class="scard etc">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">19:00</span><span class="sc-cat">이동</span>
+            <span class="sc-name">출국장 입장 → 면세점</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">19:00~19:30 출국장 입장. 대기 중 면세 쇼핑 가능.</p>
+          </div></div>
         </div>
-        <div class="stop boat">
-          <span class="t">19:40</span>
-          <div class="name">승선 → 22:30 출항</div>
-          <div class="body">선실에서 취침. <b>멀미약은 승선 30분~1시간 전</b> 복용. 다음 날 새벽 하카타 도착.</div>
+        <div class="scard boat">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">19:40</span><span class="sc-cat">배·항구</span>
+            <span class="sc-name">승선 → 22:30 출항</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">선실에서 취침. <b>멀미약은 승선 30분~1시간 전</b> 복용. 다음 날 새벽 하카타 도착.</p>
+          </div></div>
         </div>
       </div>
     </div>
@@ -338,36 +381,65 @@
       <div class="leg-head"><span class="leg-num">DAY 1</span><span class="leg-date">7.17 (금) · 후쿠오카 · 도착</span></div>
       <h2 class="leg-title">하카타 구도심 + 나카스 야타이</h2>
       <p class="leg-note">밤배로 피곤한 날. 짐 맡기고 한 박자 쉬었다가 오후부터 가볍게, 저녁은 포장마차로.</p>
-      <div class="timeline">
-        <div class="stop boat">
-          <span class="t">07:30</span>
-          <div class="name">하카타항 도착 · 입국</div>
-          <div class="body">Visit Japan Web QR로 입국·세관 통과. 항구→호텔은 텐진 방면 버스 20~30분 또는 택시 15분.</div>
+      <div class="stops">
+        <div class="scard boat">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">07:30</span><span class="sc-cat">배·항구</span>
+            <span class="sc-name">하카타항 도착 · 입국</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">Visit Japan Web QR로 입국·세관 통과. 항구→호텔은 텐진 방면 버스 20~30분 또는 택시 15분.</p>
+          </div></div>
         </div>
-        <div class="stop">
-          <span class="t">08:30</span>
-          <div class="name">호텔 짐 맡기기 <a class="map" href="https://maps.google.com/?cid=11289464294054926976" target="_blank" rel="noopener">MAP↗</a></div>
-          <div class="body"><b>체크인은 오후 3시.</b> 방은 아직 못 들어가니 프런트에 짐만 맡기고 근처에서 아침. 오후에 정식 체크인.</div>
+        <div class="scard etc">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">08:30</span><span class="sc-cat">이동</span>
+            <span class="sc-name">호텔 짐 맡기기</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc"><b>체크인은 오후 3시.</b> 방은 아직 못 들어가니 프런트에 짐만 맡기고 근처에서 아침. 오후에 정식 체크인.</p>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=11289464294054926976" target="_blank" rel="noopener">호텔 MAP↗</a></div>
+          </div></div>
         </div>
-        <div class="stop food">
-          <span class="t">11:30</span>
-          <div class="name">쿄우스시 하코자키점 · 회전초밥 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%AC%E5%AF%BF%E5%8F%B8%20%E7%AE%B1%E5%B4%8E%E5%BA%97" target="_blank" rel="noopener">MAP↗</a></div>
-          <div class="body">항구 인근 <b>하코자키</b>의 회전초밥집. <b>연중무휴</b>, 평일 점심 11:00~15:00. 지하철 하코자키선 <b>箱崎九大前역 도보 4분</b>. 짐 맡기고 시내로 들어오는 길에 점심으로 들르기 좋음. <span class="mono">092-641-5310</span></div>
+        <div class="scard food">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">11:30</span><span class="sc-cat">식사</span>
+            <span class="sc-name">쿄우스시 하코자키점 · 회전초밥</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">항구 인근 <b>하코자키</b>의 회전초밥집. <b>연중무휴</b>, 평일 점심 11:00~15:00. 지하철 하코자키선 <b>箱崎九大前역 도보 4분</b>. 짐 맡기고 시내로 들어오는 길에 점심으로 들르기 좋음. <span class="mono">092-641-5310</span></p>
+            <div class="sc-links"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%AC%E5%AF%BF%E5%8F%B8%20%E7%AE%B1%E5%B4%8E%E5%BA%97" target="_blank" rel="noopener">MAP↗</a></div>
+          </div></div>
         </div>
-        <div class="stop sight">
-          <span class="t">13:00</span>
-          <div class="name">쿠시다 신사 <a class="map" href="https://maps.google.com/?cid=11639954002556587428" target="_blank" rel="noopener">MAP↗</a></div>
-          <div class="body">하카타 수호신 신사(무료). 근처 하카타 옛거리 산책. 오전 9시~오후 5시.</div>
+        <div class="scard sight">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">13:00</span><span class="sc-cat">관광</span>
+            <span class="sc-name">쿠시다 신사</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">하카타 수호신 신사(무료). 근처 하카타 옛거리 산책. 오전 9시~오후 5시.</p>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=11639954002556587428" target="_blank" rel="noopener">MAP↗</a></div>
+          </div></div>
         </div>
-        <div class="stop sight">
-          <span class="t">14:15</span>
-          <div class="name">캐널시티 하카타 <a class="map" href="https://maps.google.com/?cid=16207815243977726417" target="_blank" rel="noopener">MAP↗</a></div>
-          <div class="body">운하를 낀 대형 몰. 30분마다 분수쇼, 지하 라멘 스타디움. 쿠시다에서 도보 5분.</div>
+        <div class="scard sight">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">14:15</span><span class="sc-cat">관광</span>
+            <span class="sc-name">캐널시티 하카타</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">운하를 낀 대형 몰. 30분마다 분수쇼, 지하 라멘 스타디움. 쿠시다에서 도보 5분.</p>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=16207815243977726417" target="_blank" rel="noopener">MAP↗</a></div>
+          </div></div>
         </div>
-        <div class="stop food">
-          <span class="t">18:30</span>
-          <div class="name">나카스 야타이 <a class="map" href="https://maps.google.com/?cid=8299763336248263788" target="_blank" rel="noopener">MAP↗</a></div>
-          <div class="body">강변 포장마차 거리. 오뎅·라멘·멘타이구이·닭꼬치. <b>분위기가 8할</b>, 가격은 관광지가라 한두 접시씩. 이후 호텔 정식 체크인·휴식.</div>
+        <div class="scard food">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">18:30</span><span class="sc-cat">식사</span>
+            <span class="sc-name">나카스 야타이</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">강변 포장마차 거리. 오뎅·라멘·멘타이구이·닭꼬치. <b>분위기가 8할</b>, 가격은 관광지가라 한두 접시씩. 이후 호텔 정식 체크인·휴식.</p>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=8299763336248263788" target="_blank" rel="noopener">MAP↗</a></div>
+          </div></div>
         </div>
       </div>
     </div>
@@ -377,31 +449,55 @@
       <div class="leg-head"><span class="leg-num">DAY 2</span><span class="leg-date">7.18 (토) · 후쿠오카 · 종일</span></div>
       <h2 class="leg-title">다자이후 + 오호리 + 텐진 → 건담 야경</h2>
       <p class="leg-note">가장 알찬 하루. 오전 다자이후, 오후 오호리·텐진, 저녁은 라라포트에서 식사하고 <b>조명 켜진 실물 건담</b>으로 피날레.</p>
-      <div class="timeline">
-        <div class="stop sight">
-          <span class="t">09:30</span>
-          <div class="name">다자이후 텐만구 <a class="map" href="https://maps.google.com/?cid=13268960937318002327" target="_blank" rel="noopener">MAP↗</a></div>
-          <div class="body">니시테츠 텐진역에서 전철 약 40~50분(호텔이 텐진 근처라 편리). 학문의 신. 참배길 먹거리(우메가에모찌)·명물 스타벅스. <b>2026년 본전 보수 중</b>이나 임시 사전·경내는 정상.</div>
+      <div class="stops">
+        <div class="scard sight">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">09:30</span><span class="sc-cat">관광</span>
+            <span class="sc-name">다자이후 텐만구</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">니시테츠 텐진역에서 전철 약 40~50분(호텔이 텐진 근처라 편리). 학문의 신. 참배길 먹거리(우메가에모찌)·명물 스타벅스. <b>2026년 본전 보수 중</b>이나 임시 사전·경내는 정상.</p>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=13268960937318002327" target="_blank" rel="noopener">MAP↗</a></div>
+          </div></div>
         </div>
-        <div class="stop sight">
-          <span class="t">14:00</span>
-          <div class="name">오호리 공원 <a class="map" href="https://maps.google.com/?cid=14839213291318671256" target="_blank" rel="noopener">MAP↗</a></div>
-          <div class="body">큰 호수를 낀 힐링 공원. 오리배·호수뷰 카페. 바로 옆 마이즈루 공원(후쿠오카성터) 같이. 다자이후에서 돌아오는 길에 시내로.</div>
+        <div class="scard sight">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">14:00</span><span class="sc-cat">관광</span>
+            <span class="sc-name">오호리 공원</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">큰 호수를 낀 힐링 공원. 오리배·호수뷰 카페. 바로 옆 마이즈루 공원(후쿠오카성터) 같이. 다자이후에서 돌아오는 길에 시내로.</p>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=14839213291318671256" target="_blank" rel="noopener">MAP↗</a></div>
+          </div></div>
         </div>
-        <div class="stop sight">
-          <span class="t">16:00</span>
-          <div class="name">텐진 지하상가 <a class="map" href="https://maps.google.com/?cid=12006416572707283355" target="_blank" rel="noopener">MAP↗</a></div>
-          <div class="body">호텔 도보 10분. 다이마루·미쓰코시·파르코. 지하 1.5km라 비 와도 쾌적. 산 짐은 호텔에 두고 가볍게 라라포트로 이동.</div>
+        <div class="scard sight">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">16:00</span><span class="sc-cat">관광</span>
+            <span class="sc-name">텐진 지하상가</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">호텔 도보 10분. 다이마루·미쓰코시·파르코. 지하 1.5km라 비 와도 쾌적. 산 짐은 호텔에 두고 가볍게 라라포트로 이동.</p>
+            <div class="sc-links"><a class="map" href="https://maps.google.com/?cid=12006416572707283355" target="_blank" rel="noopener">MAP↗</a></div>
+          </div></div>
         </div>
-        <div class="stop food">
-          <span class="t">18:30</span>
-          <div class="name">라라포트 후쿠오카 · 저녁 + 건담 베이스</div>
-          <div class="body">텐진에서 버스·전철 약 20~30분. 몰에서 저녁 식사, 건담 베이스 스토어(~21시)에서 건프라 쇼핑. 해가 질 때까지 시간 보내기 딱.</div>
+        <div class="scard food">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">18:30</span><span class="sc-cat">식사</span>
+            <span class="sc-name">라라포트 후쿠오카 · 저녁 + 건담 베이스</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">텐진에서 버스·전철 약 20~30분. 몰에서 저녁 식사, 건담 베이스 스토어(~21시)에서 건프라 쇼핑. 해가 질 때까지 시간 보내기 딱.</p>
+          </div></div>
         </div>
-        <div class="stop sight">
-          <span class="t">20:00</span>
-          <div class="name">실물 건담 야경 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=RX-93ff%20Gundam&amp;query_place_id=ChIJ4_0WFuiRQTURxlN32OlD-ck" target="_blank" rel="noopener">MAP↗</a></div>
-          <div class="body"><b>RX-93ff ν(뉴) 건담</b>. 여름 일몰이 7시 반경이라 <b>어두워진 뒤 조명이 제대로</b> 산다. <b>20:00 정각 퍼포먼스</b>에 맞춰 보면 조명+음악+움직임을 한 번에. 이후 호텔 복귀.</div>
+        <div class="scard sight">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">20:00</span><span class="sc-cat">관광</span>
+            <span class="sc-name">실물 건담 야경</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc"><b>RX-93ff ν(뉴) 건담</b>. 여름 일몰이 7시 반경이라 <b>어두워진 뒤 조명이 제대로</b> 산다. <b>20:00 정각 퍼포먼스</b>에 맞춰 보면 조명+음악+움직임을 한 번에. 이후 호텔 복귀.</p>
+            <div class="sc-links"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=RX-93ff%20Gundam&amp;query_place_id=ChIJ4_0WFuiRQTURxlN32OlD-ck" target="_blank" rel="noopener">MAP↗</a></div>
+          </div></div>
         </div>
       </div>
     </div>
@@ -411,31 +507,51 @@
       <div class="leg-head"><span class="leg-num">DAY 3</span><span class="leg-date">7.19 (일) · 귀국</span></div>
       <h2 class="leg-title">오전 마무리 → 하카타항 출항</h2>
       <p class="leg-note">관광보다 시간 관리가 핵심. 11시까지 항구 도착이 목표.</p>
-      <div class="timeline">
-        <div class="stop food">
-          <span class="t">08:00</span>
-          <div class="name">텐진에서 아침 · 막판 쇼핑</div>
-          <div class="body">호텔 근처에서 커피·식사. 지하상가 10시 오픈. 편의점에서 배에서 먹을 간식 구비.</div>
+      <div class="stops">
+        <div class="scard food">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">08:00</span><span class="sc-cat">식사</span>
+            <span class="sc-name">텐진에서 아침 · 막판 쇼핑</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">호텔 근처에서 커피·식사. 지하상가 10시 오픈. 편의점에서 배에서 먹을 간식 구비.</p>
+          </div></div>
         </div>
-        <div class="stop">
-          <span class="t">09:30</span>
-          <div class="name">호텔 체크아웃</div>
-          <div class="body">늦어도 10시엔 체크아웃. 짐 정리 후 항구로 출발.</div>
+        <div class="scard etc">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">09:30</span><span class="sc-cat">이동</span>
+            <span class="sc-name">호텔 체크아웃</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">늦어도 10시엔 체크아웃. 짐 정리 후 항구로 출발.</p>
+          </div></div>
         </div>
-        <div class="stop">
-          <span class="t">10:30</span>
-          <div class="name">하카타항 이동</div>
-          <div class="body">호텔에서 택시 15분 또는 텐진발 버스. 11시 전 도착 목표.</div>
+        <div class="scard etc">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">10:30</span><span class="sc-cat">이동</span>
+            <span class="sc-name">하카타항 이동</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">호텔에서 택시 15분 또는 텐진발 버스. 11시 전 도착 목표.</p>
+          </div></div>
         </div>
-        <div class="stop crit">
-          <span class="t">11:00</span>
-          <div class="name">탑승 수속 (1층)</div>
-          <div class="body">개별 발권 11:00~11:30 → 출국장 입장 11:30~12:00.</div>
+        <div class="scard crit">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">11:00</span><span class="sc-cat">수속</span>
+            <span class="sc-name">탑승 수속 (1층)</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">개별 발권 11:00~11:30 → 출국장 입장 11:30~12:00.</p>
+          </div></div>
         </div>
-        <div class="stop boat">
-          <span class="t">12:30</span>
-          <div class="name">하카타 출항 → 18:30 부산</div>
-          <div class="body">부산 도착 저녁 6시 반. <b>대구 출발 전 부산에서 전기차 충전</b>하고 귀가.</div>
+        <div class="scard boat">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">12:30</span><span class="sc-cat">배·항구</span>
+            <span class="sc-name">하카타 출항 → 18:30 부산</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">부산 도착 저녁 6시 반. <b>대구 출발 전 부산에서 전기차 충전</b>하고 귀가.</p>
+          </div></div>
         </div>
       </div>
     </div>
@@ -603,6 +719,15 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // accordion: 카드 헤더 클릭 시 상세 펼침/접힘
+  document.querySelectorAll('.sc-head').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const card=btn.closest('.scard');
+      const open=card.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+  });
 </script>
 </body>
 </html>
