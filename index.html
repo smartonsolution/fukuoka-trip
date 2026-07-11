@@ -123,7 +123,13 @@
   .leg-date{font-family:"Space Mono",monospace;font-size:13px;color:var(--ink-soft);letter-spacing:.06em}
   .leg-title{font-family:"Gowun Batang",serif;font-weight:700;font-size:24px;color:var(--ink);
     margin:6px 0 4px;line-height:1.2}
-  .leg-note{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px}
+  .leg-note{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px}
+  .route-map{display:inline-flex;align-items:center;gap:8px;margin:0 0 20px;padding:10px 15px;
+    background:var(--sea-deep);color:#eef2f0;border-radius:10px;font-size:13px;font-weight:600;
+    text-decoration:none;transition:background .15s,transform .15s;box-shadow:0 8px 20px -14px rgba(12,34,51,.7)}
+  .route-map:hover,.route-map:focus{background:var(--sea-mid);transform:translateY(-1px)}
+  .route-map .rm-ico{font-size:15px}
+  .route-map .rm-sub{font-family:"Space Mono",monospace;font-size:10px;color:var(--dawn);font-weight:400;letter-spacing:.05em}
 
   /* legend */
   .legend{display:flex;flex-wrap:wrap;gap:12px 16px;margin-bottom:26px;padding:12px 15px;
@@ -322,6 +328,7 @@
       <div class="leg-head"><span class="leg-num">DAY 0</span><span class="leg-date">7.16 (목) · 부산 · 승선</span></div>
       <h2 class="leg-title">부산 도착 → 국밥 → 밤배 탑승</h2>
       <p class="leg-note">서울발 부산역 오후 도착, 와이프 대구 자차 합류. 국밥 한 그릇 하고 여유 있게 승선.</p>
+      <a class="route-map" href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%B6%80%EC%82%B0%EC%97%AD&amp;destination=%EB%B6%80%EC%82%B0%ED%95%AD%EA%B5%AD%EC%A0%9C%EC%97%AC%EA%B0%9D%ED%84%B0%EB%AF%B8%EB%84%90&amp;waypoints=%EB%B3%B8%EC%A0%84%EB%8F%BC%EC%A7%80%EA%B5%AD%EB%B0%A5&amp;travelmode=transit" target="_blank" rel="noopener"><span class="rm-ico">🗺️</span>오늘 전체 동선 지도 <span class="rm-sub">GOOGLE MAPS ↗</span></a>
       <div class="stops">
         <div class="scard etc">
           <button class="sc-head" type="button" aria-expanded="false">
@@ -397,6 +404,7 @@
       <div class="leg-head"><span class="leg-num">DAY 1</span><span class="leg-date">7.17 (금) · 후쿠오카 · 도착</span></div>
       <h2 class="leg-title">하카타 구도심 + 나카스 야타이</h2>
       <p class="leg-note">밤배로 피곤한 날. 짐 맡기고 한 박자 쉬었다가 오후부터 가볍게, 저녁은 포장마차로.</p>
+      <a class="route-map" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E5%8D%9A%E5%A4%9A%E6%B8%AF%E5%9B%BD%E9%9A%9B%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB&amp;destination=%E4%B8%AD%E6%B4%B2%E5%B1%8B%E5%8F%B0&amp;waypoints=Hotel%20Monte%20Hermana%20Fukuoka%7C%E4%BA%AC%E5%AF%BF%E5%8F%B8%20%E7%AE%B1%E5%B4%8E%E5%BA%97%7C%E6%AB%9B%E7%94%B0%E7%A5%9E%E7%A4%BE%7C%E3%82%AD%E3%83%A3%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%86%E3%82%A3%E5%8D%9A%E5%A4%9A&amp;travelmode=transit" target="_blank" rel="noopener"><span class="rm-ico">🗺️</span>오늘 전체 동선 지도 <span class="rm-sub">GOOGLE MAPS ↗</span></a>
       <div class="stops">
         <div class="scard boat">
           <button class="sc-head" type="button" aria-expanded="false">
@@ -475,6 +483,7 @@
       <div class="leg-head"><span class="leg-num">DAY 2</span><span class="leg-date">7.18 (토) · 후쿠오카 · 종일</span></div>
       <h2 class="leg-title">다자이후 + 오호리 + 텐진 → 건담 야경</h2>
       <p class="leg-note">가장 알찬 하루. 오전 다자이후, 오후 오호리·텐진, 저녁은 라라포트에서 식사하고 <b>조명 켜진 실물 건담</b>으로 피날레.</p>
+      <a class="route-map" href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel%20Monte%20Hermana%20Fukuoka&amp;destination=%E3%82%89%E3%82%89%E3%81%BD%E3%83%BC%E3%81%A8%E7%A6%8F%E5%B2%A1&amp;waypoints=%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BA%80%E5%AE%AE%7C%E5%A4%A7%E6%BF%A0%E5%85%AC%E5%9C%92%7C%E5%A4%A9%E7%A5%9E%E5%9C%B0%E4%B8%8B%E8%A1%97&amp;travelmode=transit" target="_blank" rel="noopener"><span class="rm-ico">🗺️</span>오늘 전체 동선 지도 <span class="rm-sub">GOOGLE MAPS ↗</span></a>
       <div class="stops">
         <div class="scard food">
           <button class="sc-head" type="button" aria-expanded="false">
@@ -563,6 +572,7 @@
       <div class="leg-head"><span class="leg-num">DAY 3</span><span class="leg-date">7.19 (일) · 귀국</span></div>
       <h2 class="leg-title">오전 마무리 → 하카타항 출항</h2>
       <p class="leg-note">관광보다 시간 관리가 핵심. 11시까지 항구 도착이 목표.</p>
+      <a class="route-map" href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel%20Monte%20Hermana%20Fukuoka&amp;destination=%E5%8D%9A%E5%A4%9A%E6%B8%AF%E5%9B%BD%E9%9A%9B%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB&amp;travelmode=transit" target="_blank" rel="noopener"><span class="rm-ico">🗺️</span>오늘 전체 동선 지도 <span class="rm-sub">GOOGLE MAPS ↗</span></a>
       <div class="stops">
         <div class="scard food">
           <button class="sc-head" type="button" aria-expanded="false">
@@ -619,6 +629,34 @@
           </button>
           <div class="sc-panel"><div class="sc-inner">
             <p class="sc-desc">항구·터미널 실내 위주라 지장 적음. 체크아웃 후 이동만 우산으로 해결. 다만 <b>기상 악화 시 배편 지연·결항</b> 가능성 있으니 출발 전 <b>고려훼리 공지</b>를 꼭 확인하세요.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg reveal">
+      <div class="leg-head"><span class="leg-num">🍣 BONUS</span><span class="leg-date">스시 맛집 후보 · 영상 추천</span></div>
+      <h2 class="leg-title">여유 되면 들를 스시집</h2>
+      <p class="leg-note">유튜브에서 찾은 후쿠오카 스시 맛집. 일정 중 스시가 당길 때 참고하세요.</p>
+      <div class="stops">
+        <div class="scard food">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">🍣</span><span class="sc-cat">스시</span>
+            <span class="sc-name">스시사카바 사시스</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">텐진·이마이즈미의 인기 스시 이자카야. <b>텐진점 17:00~23:00, 수요일 휴무</b>. 호텔에서 가까워 저녁 대안으로 좋음(웨이팅 잦음). 하카타역 지하 <b>마잉구점은 11:00~23:00</b>라 점심도 가능.</p>
+            <div class="sc-links"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Sushi%20Sakaba%20Sashisu%20Tenjin%20Fukuoka" target="_blank" rel="noopener">MAP↗</a><a class="map web" href="https://www.youtube.com/shorts/YO_XiCh8wNo" target="_blank" rel="noopener">유튜브 ▶</a></div>
+          </div></div>
+        </div>
+        <div class="scard food">
+          <button class="sc-head" type="button" aria-expanded="false">
+            <span class="sc-time">🍣</span><span class="sc-cat">스시</span>
+            <span class="sc-name">가성비 초밥집 (영상 추천)</span><span class="sc-chev" aria-hidden="true">›</span>
+          </button>
+          <div class="sc-panel"><div class="sc-inner">
+            <p class="sc-desc">유튜브에서 소개된 후쿠오카 <b>가성비 초밥집</b>. 상호·정확한 위치는 영상에서 확인하세요(자동으로 특정되지 않아 링크로 첨부).</p>
+            <div class="sc-links"><a class="map web" href="https://www.youtube.com/shorts/--ObF-4oOE4" target="_blank" rel="noopener">유튜브 ▶</a></div>
           </div></div>
         </div>
       </div>
