@@ -374,7 +374,7 @@
       <div class="leg-head"><span class="leg-num">DAY 0</span><span class="leg-date">7.16 (목) · 부산 · 승선</span></div>
       <h2 class="leg-title">부산 도착 → 국밥 → 밤배 탑승</h2>
       <p class="leg-note">서울발 부산역 오후 도착, 와이프 대구 자차 합류. 국밥 한 그릇 하고 여유 있게 승선.</p>
-      <a class="route-map" href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%B6%80%EC%82%B0%EC%97%AD&amp;destination=%EB%B6%80%EC%82%B0%ED%95%AD%EA%B5%AD%EC%A0%9C%EC%97%AC%EA%B0%9D%ED%84%B0%EB%AF%B8%EB%84%90&amp;waypoints=%EB%B3%B8%EC%A0%84%EB%8F%BC%EC%A7%80%EA%B5%AD%EB%B0%A5&amp;travelmode=transit" target="_blank" rel="noopener"><span class="rm-ico">🗺️</span>오늘 전체 동선 지도 <span class="rm-sub">GOOGLE MAPS ↗</span></a>
+      <a class="route-map" data-route="day0" href="https://www.google.com/maps/dir/?api=1&amp;origin=%EB%B6%80%EC%82%B0%EC%97%AD&amp;destination=%EB%B6%80%EC%82%B0%ED%95%AD%EA%B5%AD%EC%A0%9C%EC%97%AC%EA%B0%9D%ED%84%B0%EB%AF%B8%EB%84%90&amp;waypoints=%EB%B0%80%EC%96%91%EC%A7%91%20%EB%B6%80%EC%82%B0&amp;travelmode=transit" target="_blank" rel="noopener"><span class="rm-ico">🗺️</span>오늘 전체 동선 지도 <span class="rm-sub">GOOGLE MAPS ↗</span></a>
       <div class="stops">
         <div class="scard etc">
           <button class="sc-head" type="button" aria-expanded="false">
@@ -492,7 +492,7 @@
       <div class="leg-head"><span class="leg-num">DAY 1</span><span class="leg-date">7.17 (금) · 후쿠오카 · 도착</span></div>
       <h2 class="leg-title">하카타 구도심 + 나카스 야타이</h2>
       <p class="leg-note">밤배로 피곤한 날. 짐 맡기고 한 박자 쉬었다가 오후부터 가볍게, 저녁은 포장마차로.</p>
-      <a class="route-map" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E5%8D%9A%E5%A4%9A%E6%B8%AF%E5%9B%BD%E9%9A%9B%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB&amp;destination=%E4%B8%AD%E6%B4%B2%E5%B1%8B%E5%8F%B0&amp;waypoints=Hotel%20Monte%20Hermana%20Fukuoka%7C%E4%BA%AC%E5%AF%BF%E5%8F%B8%20%E7%AE%B1%E5%B4%8E%E5%BA%97%7C%E6%AB%9B%E7%94%B0%E7%A5%9E%E7%A4%BE%7C%E3%82%AD%E3%83%A3%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%86%E3%82%A3%E5%8D%9A%E5%A4%9A&amp;travelmode=transit" target="_blank" rel="noopener"><span class="rm-ico">🗺️</span>오늘 전체 동선 지도 <span class="rm-sub">GOOGLE MAPS ↗</span></a>
+      <a class="route-map" data-route="day1" href="https://www.google.com/maps/dir/?api=1&amp;origin=%E5%8D%9A%E5%A4%9A%E6%B8%AF%E5%9B%BD%E9%9A%9B%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB&amp;destination=%E4%B8%AD%E6%B4%B2%E5%B1%8B%E5%8F%B0&amp;waypoints=Hotel%20Monte%20Hermana%20Fukuoka%7C%E4%BA%AC%E5%AF%BF%E5%8F%B8%20%E7%AE%B1%E5%B4%8E%E5%BA%97%7C%E6%AB%9B%E7%94%B0%E7%A5%9E%E7%A4%BE%7C%E3%82%AD%E3%83%A3%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%86%E3%82%A3%E5%8D%9A%E5%A4%9A&amp;travelmode=transit" target="_blank" rel="noopener"><span class="rm-ico">🗺️</span>오늘 전체 동선 지도 <span class="rm-sub">GOOGLE MAPS ↗</span></a>
       <div class="stops">
         <div class="scard boat">
           <button class="sc-head" type="button" aria-expanded="false">
@@ -1067,6 +1067,22 @@
     let rootRef=null;
     try{ if(window.firebase&&DB_URL){ firebase.initializeApp({databaseURL:DB_URL}); rootRef=firebase.database().ref('shared'); } }catch(e){ rootRef=null; }
 
+    // 선택된 식사를 '오늘 동선 지도'에 반영 (DAY0 국밥, DAY1 점심·저녁)
+    const MEAL_WP={
+      'fk-gukbap-day0':{milyang:'밀양집 부산 중구 중구로47번길 35',bonjeon:'본전돼지국밥 부산 초량',jeongjitgan:'정짓간 부산역점',sinchang:'신창국밥 부산역점',halmae:'할매돼지국밥 부산 초량'},
+      'fk-lunch-day1':{kyousushi:'京寿司 箱崎店',shogun:'すし将軍 天神新天町店'},
+      'fk-dinner-day1':{yatai:'中洲屋台',wagyu:'ワンカルビ PREMIUM 中洲 福岡',sashisu:'Sushi Sakaba Sashisu Tenjin Fukuoka',koushi:'コウシキャンプ 福岡 大名',dosanko:'博多川端どさんこ'}
+    };
+    const encWp=s=>encodeURIComponent(s);
+    function selOpt(key,def){ const g=document.querySelector('.opts[data-key="'+key+'"]'); if(g){ const s=g.querySelector('.opt.sel'); if(s) return s.dataset.opt; } return def; }
+    function dirUrl(o,wps,d){ let u='https://www.google.com/maps/dir/?api=1&origin='+encWp(o)+'&destination='+encWp(d); if(wps.length) u+='&waypoints='+wps.map(encWp).join('%7C'); return u+'&travelmode=transit'; }
+    function updateRoutes(){
+      const a0=document.querySelector('a.route-map[data-route="day0"]');
+      if(a0){ const g=MEAL_WP['fk-gukbap-day0'][selOpt('fk-gukbap-day0','milyang')]||'밀양집 부산'; a0.href=dirUrl('부산역',[g],'부산항국제여객터미널'); }
+      const a1=document.querySelector('a.route-map[data-route="day1"]');
+      if(a1){ const l=MEAL_WP['fk-lunch-day1'][selOpt('fk-lunch-day1','kyousushi')]||'京寿司 箱崎店'; const din=MEAL_WP['fk-dinner-day1'][selOpt('fk-dinner-day1','yatai')]||'中洲屋台'; a1.href=dirUrl('博多港国際ターミナル',['Hotel Monte Hermana Fukuoka',l,'櫛田神社','キャナルシティ博多'],din); }
+    }
+
     // ---- 준비물 항목 (3단계: 챙김/필요없음) ----
     const packItems=[];
     document.querySelectorAll('.pcard li').forEach(li=>{
@@ -1113,6 +1129,7 @@
     function applyChoice(it,val){
       it.group.querySelectorAll('.opt').forEach(o=>o.classList.toggle('sel',o.dataset.opt===val));
       if(it.hint&&val) it.hint.classList.add('show');
+      updateRoutes();
     }
     function setChoice(it,val){
       applyChoice(it,val);
@@ -1120,6 +1137,7 @@
       if(rootRef){ try{ rootRef.child('choice/'+it.key).set(val); }catch(e){} }
     }
     document.querySelectorAll('.opt a').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()));
+    updateRoutes(); // 초기 1회(선택 없으면 1순위 기준)
 
     // ---- 안내 + 초기화 ----
     const wrap=document.querySelector('.packing .wrap');
