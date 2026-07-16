@@ -1,0 +1,14 @@
+{
+  "name": "부산 → 후쿠오카 여행",
+  "short_name": "후쿠오카 여행",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c2233",
+  "theme_color": "#0c2233",
+  "lang": "ko",
+  "icons": [
+    { "src": "icon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any maskable" }
+  ]
+}
