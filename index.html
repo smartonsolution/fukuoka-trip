@@ -125,7 +125,13 @@
   /* ---------- DAYS ---------- */
   .days{padding:40px 0 10px}
   .leg{margin-bottom:38px}
-  .leg-head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px;flex-wrap:wrap}
+  .leg-head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px;flex-wrap:wrap;cursor:pointer;user-select:none;-webkit-user-select:none}
+  .leg-title{cursor:pointer}
+  .leg-fold{margin-left:auto;align-self:center;color:var(--ink-soft);font-size:22px;line-height:1;transition:transform .25s;transform:rotate(90deg)}
+  .leg:not(.collapsed) .leg-fold{transform:rotate(-90deg)}
+  .leg.collapsed{margin-bottom:12px}
+  .leg.collapsed .leg-title{margin-bottom:0}
+  .leg.collapsed .leg-note,.leg.collapsed .route-map,.leg.collapsed .route-sel,.leg.collapsed .stops{display:none}
   .leg-num{font-family:"Space Mono",monospace;font-weight:700;font-size:13px;color:var(--amber);
     letter-spacing:.1em;border:1px solid var(--amber);border-radius:6px;padding:2px 8px}
   .leg-date{font-family:"Space Mono",monospace;font-size:13px;color:var(--ink-soft);letter-spacing:.06em}
@@ -1157,6 +1163,20 @@
       const open=card.classList.toggle('open');
       btn.setAttribute('aria-expanded',open?'true':'false');
     });
+  });
+
+  // 날짜(일정) 접기: 기본 전부 접힘 → 날짜 제목 탭하면 그날 상세 펼침
+  document.querySelectorAll('.days .leg').forEach(leg=>{
+    leg.classList.add('collapsed');
+    const head=leg.querySelector('.leg-head');
+    const title=leg.querySelector('.leg-title');
+    if(head && !head.querySelector('.leg-fold')){
+      const ch=document.createElement('span'); ch.className='leg-fold'; ch.textContent='›'; ch.setAttribute('aria-hidden','true');
+      head.appendChild(ch);
+    }
+    const toggle=()=>leg.classList.toggle('collapsed');
+    if(head) head.addEventListener('click',toggle);
+    if(title) title.addEventListener('click',toggle);
   });
 
   // ===== 가족 공유 동기화 (Firebase Realtime DB) + 로컬 저장 폴백 =====
