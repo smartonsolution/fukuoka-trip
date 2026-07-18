@@ -273,6 +273,10 @@
     border:1px solid var(--rule-strong);border-radius:8px;color:var(--ink-soft);font-size:12px;
     cursor:pointer;font-family:inherit;transition:border-color .15s,color .15s}
   .pack-reset:hover,.pack-reset:focus{border-color:var(--amber);color:#b4761a}
+  .packing > .wrap > .section-h:first-of-type{cursor:pointer;user-select:none;-webkit-user-select:none}
+  .pack-fold{margin-left:auto;color:var(--ink-soft);font-size:20px;line-height:1;transition:transform .25s;transform:rotate(90deg)}
+  .packing:not(.collapsed) .pack-fold{transform:rotate(-90deg)}
+  .packing.collapsed .must,.packing.collapsed .plist,.packing.collapsed .wrain,.packing.collapsed .pack-bar,.packing.collapsed .section-h:not(:first-of-type){display:none}
 
   /* ---------- PRACTICAL ---------- */
   .info{background:var(--sea-deep);color:#dfe8ea;margin-top:44px;padding:44px 0 40px}
@@ -1268,6 +1272,19 @@
     if(head) head.addEventListener('click',toggle);
     if(title) title.addEventListener('click',toggle);
   });
+
+  // 준비물 접기: 기본 숨김 → 제목 탭하면 펼침
+  (function(){
+    const pk=document.querySelector('.packing');
+    if(!pk) return;
+    pk.classList.add('collapsed');
+    const h=pk.querySelector('.section-h');
+    if(h && !h.querySelector('.pack-fold')){
+      const ch=document.createElement('span'); ch.className='pack-fold'; ch.textContent='›'; ch.setAttribute('aria-hidden','true');
+      h.appendChild(ch);
+      h.addEventListener('click',()=>pk.classList.toggle('collapsed'));
+    }
+  })();
 
   // ===== 가족 공유 동기화 (Firebase Realtime DB) + 로컬 저장 폴백 =====
   (function(){
